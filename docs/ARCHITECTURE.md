@@ -81,7 +81,7 @@ Nothing below is typed by hand.
 | `Progress` | rollup | % of this project's tasks complete (`percent_checked` on Tasks.Done). |
 | `Tasks Total` / `Tasks Open` / `Tasks Overdue` | rollup | Counts. |
 | `Complete` / `Is Active` | formula (bool) | Feed goal + area rollups. |
-| `Health` | formula (str) | Progress vs elapsed time. On Track / At Risk / Behind / Overdue. |
+| `Health` | formula (str) | Not Started (Idea/Planning) / Blocked (Waiting) / On Track / At Risk / Behind / Overdue / Done. Status decides first; only a project that is actually running gets compared against elapsed time. |
 | `Attention` | formula (str) | **Why** a project is stuck: no next action / no open tasks / has overdue tasks. Empty = healthy. |
 
 ### Goals
