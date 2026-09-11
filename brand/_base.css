@@ -1,0 +1,9 @@
+@font-face{font-family:IS;src:url('file:///mnt/skills/examples/canvas-design/canvas-fonts/InstrumentSans-Regular.ttf');font-weight:400}
+@font-face{font-family:IS;src:url('file:///mnt/skills/examples/canvas-design/canvas-fonts/InstrumentSans-Bold.ttf');font-weight:700}
+@font-face{font-family:GM;src:url('file:///mnt/skills/examples/canvas-design/canvas-fonts/GeistMono-Regular.ttf');font-weight:400}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:2000px;height:2000px;overflow:hidden}
+body{font-family:IS,sans-serif;-webkit-font-smoothing:antialiased}
+.sheet{width:2000px;height:2000px;padding:150px;display:flex;flex-direction:column;justify-content:space-between}
+.eyebrow{font-family:GM;font-size:34px;letter-spacing:.34em;text-transform:uppercase}
+.rule{height:2px;width:100%}
