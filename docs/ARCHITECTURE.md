@@ -119,8 +119,28 @@ The choice is driven by how many rows there are and what you do with them.
 | Board | Task status, Areas, Timeframes | Moving something between states. |
 | List | Compact mobile reading | No horizontal scroll on a phone. |
 | Calendar / Timeline | Due dates, project spans | Time is the question being asked. |
-| Chart | Analytics | The shape matters more than the rows. |
+| Chart | Analytics (22 of them) | The shape matters more than the rows. |
 | **Gallery** | **Areas, active Projects, active Goals** | **Few items, each carrying several numbers worth reading at once.** |
+
+## The Analytics page
+
+Twenty-two charts, in four deliberate bands:
+
+| Band | Charts | Type |
+|---|---|---|
+| Now | Open tasks, Overdue, Done this week, Active projects, Spent this month, Minutes logged | number tiles |
+| Shape of the work | Tasks by status, Priority against status, Open work by area, Tasks by energy, Tasks by context | donut, column, bar |
+| Commitments | Projects by status, Projects by area and status, Goals by timeframe | donut, bar, column |
+| Money | Spending by category, Income against spending, Money over time | bar, column |
+| Rhythm | Habits by frequency, Weekly score over time, Average score by review type | donut, line, bar |
+| Capacity | Time your priorities need, Average task size by area | column, bar |
+
+Every chart carries a caption that says what to *do* about it, not what it shows. A chart
+you have to interpret is a chart you stop opening.
+
+**Hard constraint:** a chart can filter on a formula but cannot group by one — grouping by a
+formula silently produces a view that never registers. See DECISIONS for the test that
+established this and the substitutions it forced.
 
 Galleries are used in exactly three places. A gallery of two hundred tasks is worse than a
 table of two hundred tasks — cards cost vertical space, and that space is only earned when

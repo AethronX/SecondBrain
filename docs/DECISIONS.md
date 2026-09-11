@@ -34,7 +34,8 @@ Documented in-product on **Settings & Help**, not hidden.
 | No consecutive-day streak is computable | `Last Done`, `Days Since` and `Habit Health` (judged against each habit's frequency) are computed and honest. `Current Streak` exists as an explicitly manual number. |
 | No native graph visualisation | `Related Notes` + `Referenced By` give links and backlinks — the thing a graph is *for* — walkable in both directions. |
 | No dynamic time-of-day greeting in page text | Not faked. The live element is the Daily Log "today" view, which is real. |
-| No bulk delete, and no API to build a "clear demo data" button | The **Remove the demo data** page: seven views pre-filtered to the sample rows, so clearing them is select-all + Delete, seven times. |
+| No bulk delete, and no API to build a "clear demo data" button | The **Remove the demo data** page: nine views pre-filtered to the sample rows, so clearing them is select-all + Delete, nine times. |
+| Charts cannot group by a formula property | Every chart groups by a select, relation or date instead; formulas are still used freely as chart *filters*. |
 | Database page layouts cannot be set via API | Page content templates are on **Blueprints** instead; the layout itself is a one-time manual setting, documented in Settings & Help. |
 | Custom hex colours unsupported | Brand palette mapped to nearest Notion colours and applied *consistently*; table of the mapping is in Settings. Dark mode is a per-device Notion setting. |
 
@@ -101,7 +102,7 @@ Sample rows earn their place on day one and become clutter on day ten. Notion ha
 for bulk deletion and no button that can be created programmatically, so the honest version
 is a page that makes the manual delete take seconds.
 
-**Remove the demo data** (a child of Settings & Help) carries seven linked views, one per
+**Remove the demo data** (a child of Settings & Help) carries nine linked views, one per
 database, each filtered to `Title starts with "Sample"`. Select-all in the header row,
 press Delete, move to the next. Seven actions, no hunting, nothing real at risk — the filter
 physically cannot show a row the user created.
@@ -151,6 +152,50 @@ in the build environment blocks `images.unsplash.com` and `www.notion.so`, so no
 could be verified before writing it to eighteen pages. Notion stores an external cover URL
 without validating it, so a wrong guess ships as a broken image on every page — worse than
 none. Left for the user, who can set one from Notion's own picker in two clicks per page.
+
+## The chart layer, and the one rule that governs it
+
+Analytics carries **22 charts**: six number tiles across the top, then shape, then money,
+then the trend. Every Notion chart capability the API exposes is in use — all five types
+(number, donut, column, bar, line), count / sum / average aggregates, `STACK BY`, captions,
+three heights, seven colour themes, and value sorting.
+
+**The rule: you can filter on a formula, but you cannot group by one.**
+
+This was found by testing, not assumed. `GROUP BY "Health"` on a formula property returns
+a bare `Created view` with no view URI and no config echo — the chart is created but never
+registers, and re-fetching the block shows no view at all. The identical call with
+`GROUP BY "Status"` returns a full config. Same silent-failure class as the boolean-filter
+drop found earlier in the build: no error, just a broken view.
+
+So every chart groups by something real — select, multi-select, relation or date — while
+filters still use the formulas freely (`Timeline = "Overdue"`, `Done This Week IS NOT EMPTY`,
+`This Month IS NOT EMPTY` all work and are verified in the returned configs).
+
+Where a formula was the natural grouping, the question was re-asked against a real property:
+
+| Wanted | Shipped instead |
+|---|---|
+| Projects by `Health` | Projects by `Status`, plus health on the project gallery cards |
+| Tasks by `Workload` | Time owed by `Priority`, and average task size by `Area` |
+| Money by `Month` | Money by `Date` (Notion groups it by day) and by `Category` |
+| Habits by `Habit Health` | Habits by `Frequency` |
+
+Date grouping works but the API gives no granularity directive, so it defaults to `day`.
+`Money over time` is therefore per-transaction rather than per-month. Honest, and still
+readable; monthly rollup is a two-click change in the Notion UI.
+
+## Sample data was extended so the charts have shape
+
+A chart with no rows is worse than no chart. Finance and Reviews were empty, which left the
+money and score charts blank — the two most persuasive charts in the product.
+
+Added 17 sample transactions across July–September and six sample reviews (five weekly, one
+monthly, scores 6/7/6/8/7). The review text is written as a real person's review, because
+the score line is meaningless without something to read behind it.
+
+Both are prefixed `Sample ·` and both now appear on **Remove the demo data**, which carries
+nine filtered views rather than seven.
 
 ## Verified, not assumed
 
