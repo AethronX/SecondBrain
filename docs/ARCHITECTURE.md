@@ -111,7 +111,10 @@ see DECISIONS.
 
 ## Colour language
 
-One meaning, one colour, everywhere:
+Two registers. They never share a surface, so they never compete: status colours only
+appear on data, zone colours only on navigation.
+
+**Status** — one meaning, one colour, on every row and every board:
 
 | Meaning | Colour |
 |---|---|
@@ -122,3 +125,25 @@ One meaning, one colour, everywhere:
 | Complete / healthy | green |
 | Waiting / caution | yellow |
 | Inactive / neutral | gray |
+
+**Zone** — the six navigation cards on Home. Same hues, same connotations, applied to a
+place rather than a state:
+
+| Zone | Colour | Contains |
+|---|---|---|
+| Daily | purple | Today, Inbox, Command Center |
+| Build | blue | Tasks, Projects, Goals |
+| Think and live | green | Knowledge, Learning, Life |
+| Rhythm | orange | Reviews, Analytics, Archive |
+| Tools | gray | Start Here, AI Workflow Center, Blueprints |
+| System | gray | Mobile Home, Settings & Help, System — Databases |
+
+The rule that generates this: **colour marks where you spend time, gray marks what you
+rarely touch.** Four zones of use are tinted; setup and plumbing recede. That is the whole
+hierarchy, and it is why the last two cards deliberately share a colour — Tools and System
+are one register, and reading them as one thing is correct.
+
+Each card is a Notion callout carrying a coloured icon, an uppercase zone label, one line
+of purpose and its three page links. Notion has no button block that an API can create, so
+a tinted callout is the closest honest thing: it groups, it carries colour, and its page
+links are already the pill-shaped tap targets a button would be.
