@@ -126,8 +126,9 @@ appear on data, zone colours only on navigation.
 | Waiting / caution | yellow |
 | Inactive / neutral | gray |
 
-**Zone** — the six navigation cards on Home. Same hues, same connotations, applied to a
-place rather than a state:
+**Zone** — navigation. Same hues, same connotations, applied to a *place* rather than a
+state. A zone's colour appears in three places at once: its card on Home, the bar at the
+top of every page inside it, and the page icons in the sidebar.
 
 | Zone | Colour | Contains |
 |---|---|---|
@@ -143,7 +144,37 @@ rarely touch.** Four zones of use are tinted; setup and plumbing recede. That is
 hierarchy, and it is why the last two cards deliberately share a colour — Tools and System
 are one register, and reading them as one thing is correct.
 
-Each card is a Notion callout carrying a coloured icon, an uppercase zone label, one line
-of purpose and its three page links. Notion has no button block that an API can create, so
-a tinted callout is the closest honest thing: it groups, it carries colour, and its page
-links are already the pill-shaped tap targets a button would be.
+Each Home card is a Notion callout carrying a coloured icon, an uppercase zone label, one
+line of purpose and its three page links. Notion has no button block that an API can
+create, so a tinted callout is the closest honest thing: it groups, it carries colour, and
+its page links are already the pill-shaped tap targets a button would be.
+
+## The page bar
+
+Every page opens with the same two-line callout, tinted to its zone:
+
+```
+NAZZIM › DAILY
+Today · Inbox · Command Center
+```
+
+Line one is the breadcrumb, line two the zone's three pages. The page you are on is bold
+plain text rather than a link — you never click through to where you already are.
+
+Three things this replaced, and why:
+
+**`<mention-page>` became `[text](url)`.** Inline page mentions render with a `↗` glyph in
+front of every item, so a row of six produced six arrows and read as clutter. A plain
+markdown link renders as plain text, which is what a nav row should be.
+
+**Eight arbitrary cross-links became three zone siblings.** The old row listed whichever
+pages seemed related, differently on every page, so it taught the reader nothing and could
+not be scanned. Three fixed siblings can be — and they are the same three every time you
+are in that zone.
+
+**The trailing divider went.** A callout already draws its own boundary; a rule underneath
+it was a second separator doing the first one's job.
+
+Page icons carry the zone colour too, so the sidebar is colour-coded without anyone having
+to read it. Pages in Tools and System keep gray icons, which is the same rule working:
+colour marks where you spend time.
