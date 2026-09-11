@@ -27,7 +27,7 @@ Projects, Goals, Knowledge, Learning, Life, Reviews, Analytics, Archive,
 AI Workflow Center, Blueprints, Mobile Home, Settings & Help, Remove the demo data,
 System — Databases.
 
-**70 linked views** composing the dashboards, plus view tabs on every database
+**72 linked views** composing the dashboards, plus view tabs on every database
 (Tasks alone carries ten: Today, Overdue, Next Actions, Upcoming, Waiting,
 Completed, Board, Calendar, By Area, By Project).
 

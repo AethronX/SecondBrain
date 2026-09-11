@@ -109,6 +109,23 @@ see DECISIONS.
 ### Daily Log
 `Habits Completed` (rollup), `Is Today` (formula).
 
+## Which view type, and why
+
+The choice is driven by how many rows there are and what you do with them.
+
+| View | Used for | Why |
+|---|---|---|
+| Table | Tasks, Reviews, Notes, Resources | Scanning many rows down one column. |
+| Board | Task status, Areas, Timeframes | Moving something between states. |
+| List | Compact mobile reading | No horizontal scroll on a phone. |
+| Calendar / Timeline | Due dates, project spans | Time is the question being asked. |
+| Chart | Analytics | The shape matters more than the rows. |
+| **Gallery** | **Areas, active Projects, active Goals** | **Few items, each carrying several numbers worth reading at once.** |
+
+Galleries are used in exactly three places. A gallery of two hundred tasks is worse than a
+table of two hundred tasks — cards cost vertical space, and that space is only earned when
+each card carries more than a row could.
+
 ## Colour language
 
 Two registers. They never share a surface, so they never compete: status colours only

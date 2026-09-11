@@ -110,6 +110,48 @@ The page also states what is *not* demo data, because getting that wrong is the 
 mistake: the six Areas and five Habits are starting points meant to be renamed and kept, and
 the Daily Log entry is dated rather than prefixed so it will not appear in these views.
 
+## What the market leaders do, and what was worth copying
+
+Researched against the products that actually sell: Thomas Frank's Ultimate Brain ($129),
+Easlo's Second Brain ($39), and the aesthetic-dashboard category.
+
+| Their pattern | Verdict |
+|---|---|
+| Horizontal top navigation with hyperlinks (Ultimate Brain) — reviewers rate it above Easlo's sidebar column | Already the pattern here. The page bar is the same idea, plus a zone colour. |
+| A cohesive colour scheme — the most common *criticism* of Ultimate Brain is that it lacks one | This is the system's strongest card. Two registers, documented, applied everywhere. |
+| Gallery views with cards for the few, high-value objects | **Was missing.** Added for Areas, Projects and Goals. |
+| Life areas as the visual centrepiece | **Was missing.** Areas was the hub of the relation graph but appeared only as one table row set. |
+| Cover images on every page | Deliberately skipped — see below. |
+| Embedded widgets (clocks, weather, Spotify, Pomodoro) | Rejected. They are third-party iframes that break, and none of them answers "what should I do next?" |
+
+Three galleries now exist where a card genuinely beats a row — few items, each carrying
+several numbers worth seeing at once:
+
+- **Areas of life** (Command Center) — purpose, active projects, open tasks, overdue tasks
+- **Active projects at a glance** (Projects) — health, progress, next action, deadline
+- **Goals at a glance** (Goals) — why, progress, health, timeframe
+
+Tables were kept everywhere the job is scanning many rows against one column. A gallery of
+two hundred tasks is worse than a table of two hundred tasks, and most templates get this
+wrong in the other direction.
+
+The six Areas also gained icons, coloured by `Type` — green for Life, blue for Work, purple
+for Growth. That is the status register doing its job: `Type` is data.
+
+## Two things researched, tried, and not shipped
+
+**Notion 3.4's dashboard view.** The newest database feature — charts and KPI tiles in one
+block — and the API will create one. It comes back `rows: []` and the view is then not
+retrievable by ID, so there is no way to put a single tile in it. It ships as an empty
+shell. Created one, confirmed the behaviour, deleted it. The seven live charts on Analytics
+do the same job with real data.
+
+**Cover images on every page.** The standard premium-template move, and the outbound proxy
+in the build environment blocks `images.unsplash.com` and `www.notion.so`, so no image URL
+could be verified before writing it to eighteen pages. Notion stores an external cover URL
+without validating it, so a wrong guess ships as a broken image on every page — worse than
+none. Left for the user, who can set one from Notion's own picker in two clicks per page.
+
 ## Verified, not assumed
 
 - `Today Tier` — queried, returns exactly the expected 2 Must Do rows.
