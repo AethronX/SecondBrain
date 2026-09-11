@@ -218,3 +218,48 @@ The 6 Areas and 5 Habits are **not** samples — they are starting points meant 
 renamed and kept. Neither is the Daily Log entry, which is dated rather than prefixed.
 
 **Remove the demo data** (under Settings & Help) clears the rest in about a minute.
+
+## The Pro edition, and what deleting a database actually leaves behind
+
+NAZZIM Pro is a second live workspace, not a marketing tier. It was duplicated from
+Ultimate and reduced to the nine databases that carry the two spines: Areas, Goals,
+Projects, Tasks, Inbox, Notes, Resources, Daily Log, Reviews. Cut: Books, Learning,
+Habits, Finance, People — and with them five pages (Learning, Life, AI Workflow Center,
+Blueprints, Mobile Home).
+
+**Deleting a database does not clean up after itself**, and every remnant is user-visible:
+
+| What breaks | Where it turned up |
+|---|---|
+| Linked views render as a dead block marked `deleted` | Analytics (5), Remove the demo data (3), Knowledge (1), Archive (1) |
+| A relation keeps pointing at a trashed data source | `Resources.Learning` survived the first sweep and was found only by reading the schema back |
+| Page-bar links point at trashed pages | Knowledge, Start Here, Settings & Help, System — Databases |
+| Prose names things that no longer exist | habit streaks, currency, Blueprints, "five Habits", "fourteen databases", the Ultimate changelog |
+
+None of it was found by trusting the delete. Each page and each data source was fetched
+and read — sixteen separate corrections in Settings & Help alone.
+
+Rollups are the one thing Notion does handle: dropping a relation drops its rollups with
+it, and Areas, Notes and Daily Log came back clean.
+
+## Pro gained a chart band rather than only losing one
+
+Ultimate carries 22 charts and not one reads from Notes or Resources — habits and money
+crowded them out. Pro carries 20, and three are new:
+
+- **Waiting to be read** — number tile, Resources filtered to `To Review`
+- **Where your thinking lives** — Notes by `Area`, donut
+- **What you actually save** — Resources by `Type`, column, sorted by value
+
+Knowledge is half of what Pro sells. It now appears on the analytics page.
+
+Three more API facts, each learned by being rejected:
+
+- `COLOR` is not a top-level view directive. It belongs inside the `CHART` clause,
+  alongside `AGGREGATE`, `HEIGHT`, `SORT` and `CAPTION`.
+- Chart sort takes `x_ascending`, `x_descending`, `y_ascending`, `y_descending`. Plain
+  `ASC` / `DESC` is rejected.
+- After an edit, Notion rewrites inline links from `[text](/p/<id>?pvs=25)` to the full
+  `https://app.notion.com/p/<id>` form. A later `update_content` matching the old shape
+  fails with "No matches found" — re-fetch before the second edit to a page you just
+  edited.
