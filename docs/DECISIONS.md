@@ -521,3 +521,88 @@ The fourteen child pages still have to exist as real `<page>` blocks somewhere, 
 deletes them, so they live in the closing toggle alongside the explanation of how the
 system fits together. Nothing is lost, nothing is hidden that matters, and the first
 screen is now an instrument.
+
+## Tabs existed the whole time, and they undo the mobile ceiling
+
+Twice in this build I told the user that Notion's column-stacking behaviour set a hard
+ceiling on how good the phone layout could get: `<columns>` collapse to a vertical stack
+on a narrow screen, so a page with a three-number strip and three content views becomes
+six full-width blocks to scroll past. I priced that at about three points and moved on.
+
+It was wrong. The enhanced-markdown spec carries a `<tabs>` block, and a linked database
+view lives inside a `<tab>` perfectly well — proved by inserting a throwaway two-tab block
+on Analytics, reading it back, then removing it.
+
+A tab strip is the one layout primitive that behaves *identically* on desktop and phone.
+It does not stack, it does not reflow, and it costs one tap instead of a screen of scroll.
+
+Eight pages, twenty-two views, now in tab strips:
+
+| Page | Tabs |
+| --- | --- |
+| Analytics | Where the work sits · Are the weeks getting better · What you read |
+| Tasks | Board · Calendar |
+| Projects | Active · Timeline · Board |
+| Goals | Active · Timeline · Board |
+| Areas | Overview · By type |
+| Knowledge | Ideas · By type · Reading queue · Search |
+| Reviews | Board · Week ahead |
+| Archive | Projects · Goals · Tasks |
+
+Analytics is the clearest win: twenty charts in four banded sections became six always-visible
+numbers plus three tabs. That is a load improvement as well as a layout one — a phone now
+renders six views on arrival instead of twenty.
+
+**Two pages deliberately kept their stacked layout.** Today is the daily driver and the
+overdue strip sits *above* the board on purpose, so you see what is late before you plan
+anything new; hiding either behind a tap defeats it. Command Center exists to answer "is
+anything wrong anywhere", and that question needs every surface visible at once — a tab
+you have to open to discover it is empty is worse than a short list that is visibly empty.
+
+### Three API facts learned here
+
+- `<tab>` takes its **title as the first indented line**, then its children below it.
+- Tab icons are validated server-side: `icons/magnifying-glass_gray` is rejected by name,
+  `icons/search_gray` is accepted. A rejected icon fails the whole call, so an icon that
+  round-trips is a confirmed-valid icon.
+- Creating `<database data-source-url>` with no `url` makes a linked-view block that the
+  API counts as a **child database** — removing it later needs `allow_deleting_content`,
+  even though it holds no data of its own.
+
+## Empty-state guidance nobody could read
+
+Notion's "No results" cannot be customised, so every page carried its empty-state answer
+in prose — *"No plan above?"*, *"Nothing archived yet?"*, *"All of it empty?"*. All of it
+was inside a collapsed `<details>` toggle. A first-time user staring at an empty board sees
+`No results` and a closed toggle titled something like *What the states and priorities mean*,
+which does not look like it holds the answer.
+
+The fix costs nothing and works: **the toggle summary is always visible, so put the promise
+there.** Eight summaries rewritten to name the empty case — *"…and what to do when the
+board is empty"*, *"…and why it is empty at first"*, *"…and what it means when all of it is
+empty"*, *"…and why week one looks flat"*. Tasks also gained the missing answer itself,
+which had never been written: click New, type one thing, set a due date, and every other
+property can stay blank forever.
+
+## Start Here is seven timed steps
+
+The three-column "three things to do today" opening was friendly but it hid the shape of
+the setup — a reader could not tell whether they were five minutes or five hours from a
+working system. It is now seven numbered steps in the order the spec asks for, each with
+its own cost: understand the loop (30s), Areas (2m), one Goal (1m), one Project (1m),
+three Tasks and one Note (2m), Today (1m), first Weekly Review (Sunday, 30m).
+
+Above them sits the thirty-second escape hatch, because the seven steps are still too much
+for someone who opened the product on a phone in a queue: open NAZZIM, the capture box is
+under *Do this next*, click New, type, Escape. That is the only habit that has to survive a
+bad day, and it should not be gated behind an onboarding.
+
+## The four rhythms, named once
+
+Retention was the weakest of the ten spec categories and the reason was findable: the daily
+close lived on Today, the weekly ritual on Reviews, and monthly and yearly existed only as
+`Type` options on a database — a cadence the product never actually told you to run. The
+Reviews page now opens with all four named, costed and located: Daily 2 minutes on Today,
+Weekly 30 minutes here, Monthly 45 minutes, Yearly 2 hours, with an explicit adoption order
+— start weekly, add monthly after the fourth week, yearly can wait until there is a year
+worth reading.
