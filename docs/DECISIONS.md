@@ -454,3 +454,34 @@ weekly-planning apps this audience already pays for, and it was one view away.
 
 Fourteen pages now, and every one of the nine databases has a destination that answers a
 question nothing else answers.
+
+## What the reviews of the market leaders actually say
+
+Researched against what reviewers and buyers write about the two templates this product
+competes with — Thomas Frank's Ultimate Brain ($129) and Easlo's Second Brain ($39,
+4.95 from 51 ratings, 96% five-star) — rather than against my own taste.
+
+| What reviewers say | Where NAZZIM already stands | Action |
+|---|---|---|
+| Ultimate Brain's **horizontal top navigation is rated above Easlo's sidebar column** | Same pattern, and one tap to every destination rather than only the zone's siblings | none |
+| Ultimate Brain's most common criticism is that it **lacks a cohesive colour scheme** | Two registers — status colours on data, zone colours on navigation — applied everywhere and documented | none |
+| Easlo's nav **"works worse on mobile"**; the design **"can feel plain"** | Inline text links rather than a sidebar, so the bar wraps and stays tappable on a phone. Plain is accurate and is the owner's deliberate choice: no covers | none |
+| **"Templates hide complexity. When something breaks, you're lost."** | Every page carries one toggle answering the question a stuck user would ask, and Settings carries troubleshooting plus a plain-language formula reference | none |
+| **"The more sophisticated your second brain, the more maintenance it demands. What starts as a few minutes a week becomes hours."** | Nothing is filed by hand — every list is a filter and every number is computed | **say so on the home page** |
+| **"Templates are too big to adopt in one shot."** · **"Most templates don't survive a week of real use."** | Fourteen destinations presented with equal weight on first open | **fix** |
+
+The last two were real. Both are now answered on the first screen anybody sees.
+
+The home callout states the upkeep cost honestly — *nothing is filed by hand, the only
+upkeep is thirty minutes on a Sunday* — because the maintenance tax is the single most
+repeated complaint in every review of every template in this category, and the honest
+answer to it is this product's strongest claim.
+
+And the five zone cards now carry a weight cue: **DAILY · start here**, **BUILD · from
+day two**, **RHYTHM · from week two**, **THINK · later**, SYSTEM already said *rarely
+needed*. Nothing is hidden — the buyer still sees the full system on open, which is what
+they paid for — but they can now tell in one glance which three pages week one actually
+needs, and that the rest is depth rather than homework.
+
+That is progressive adoption without progressive disclosure, and it is the one thing the
+reviews say every template in this category gets wrong.
