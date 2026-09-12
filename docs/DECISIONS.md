@@ -400,3 +400,27 @@ stacking on mobile cannot be turned off, buttons and database templates still ca
 created programmatically, and none of this layout work has ever been seen rendered from
 here — every claim above is verified by reading the page and view configs back, not by
 looking at the result.
+
+## Closing the last three gaps
+
+**Start Here was the last page still shaped the old way** — seven prose sections in a
+column, and the second page any buyer opens. Its job is "get running in ten minutes", so
+the ten minutes are now three side-by-side steps in one screen (edit your areas, empty
+your head, name one big thing) and everything else — first day, first week, the four
+levels, the three rules, what to open later — sits in five toggles under them. All
+thirteen pages now share one grammar.
+
+**Two view types were missing where they would earn their place.** Goals gained a
+timeline on `Deadline`, so a year of commitments reads as a line rather than a list;
+Knowledge gained a board of notes grouped by `Type`, paired in columns with the reading
+queue, which turns the two boards into one row instead of two.
+
+**What is left is honest to name.** Visual identity in Notion without images is capped:
+colour and typography carry everything, and the one lever that would lift it — page
+covers — was explicitly removed at the user's instruction earlier in the build. That is
+their call to reverse, not a limitation to work around silently.
+
+And the ceiling that no amount of layout work moves: **Notion stacks columns vertically
+on phones.** The number strips, the paired views and the Analytics bands are all a
+desktop gain and a mobile no-op. Every page is still correct and readable on a phone —
+just taller than the layout implies.
