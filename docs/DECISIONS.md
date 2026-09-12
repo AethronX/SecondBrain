@@ -263,3 +263,66 @@ Three more API facts, each learned by being rejected:
   `https://app.notion.com/p/<id>` form. A later `update_content` matching the old shape
   fails with "No matches found" — re-fetch before the second edit to a page you just
   edited.
+
+## The page grammar, rebuilt around fewer clicks
+
+Every dashboard in Pro was the same shape: a prose callout, a paragraph, four to
+seven linked views stacked vertically, another prose callout. On a phone that is six
+screens of scrolling before you reach an answer. The rebuild gives all ten pages one
+grammar:
+
+```
+page bar          one line, zone colour
+number strip      two or three tiles, side by side
+the primary view  the reason you opened the page
+paired views      two per row instead of one
+<details>         every word of prose, collapsed
+```
+
+Nothing was deleted from the writing — it moved into a single toggle per page, so the
+page opens as an instrument and explains itself only when asked.
+
+**Three separate views became one board.** Today had *Must do*, *Should do* and *If time*
+as three stacked tables; it now has one board grouped by `Priority`, filtered to today's
+work, with `hideEmptyGroups` on — so a light day shows one column, not four, and a task
+changes priority by being dragged. The same move collapsed Tasks (five tables → one board
+plus a calendar), Inbox (the five processing answers → five board columns you drag into),
+Reviews (three tables → one board grouped by `Type`) and Goals (four tables → a gallery
+and a board by horizon).
+
+Three view types that were never used now carry real weight: **timeline** on Projects
+(`Start Date` → `Deadline`, drag a bar to reschedule), **calendar** on Tasks, and
+**gallery** wherever the objects are few and each carries several numbers worth seeing
+at once — Areas, active Projects, Goals, Notes, finished work.
+
+Analytics kept all twenty charts and lost half its height: they are banded into four
+titled sections — *Today, in six numbers* · *Where the work sits* · *Are the weeks getting
+better* · *What you read* — laid out three-up and two-up instead of one per row.
+
+Reviews got the biggest readability win with no new views at all: the ten weekly questions
+were a vertical list four screens long, and are now four columns — Look back, Look at the
+system, Look for the lesson, Look forward — read left to right in one screen.
+
+## Five more API facts, each learned by being rejected or silently ignored
+
+Tested on a scratch page before touching the product, then deleted.
+
+| Fact | How it showed up |
+|---|---|
+| Columns and toggles both accept linked database views | Confirmed by round-trip: a `<columns>` holding two views and a `<details>` holding a third all survived |
+| **Boards cannot `GROUP BY` a formula** — same silent failure as charts | `GROUP BY "Today Tier"` returned a board config with no `groupBy` key at all. Re-based on `Priority`, which returned `groupBy` with `hideEmptyGroups: true` |
+| Boolean-formula filters are still dropped silently | `FILTER "Overdue" IS NOT EMPTY` came back as `filters: []`. `Overdue` stayed boolean because the Projects rollups depend on it; every such filter now uses the string formula `Timeline` instead |
+| `COLOR`, `HEIGHT`, `SORT` and `CAPTION` belong **inside** the `CHART` clause | `COLOR` as its own directive is "Unknown directive" |
+| Chart sort is `x_ascending`/`x_descending`/`y_ascending`/`y_descending` | Plain `DESC` is rejected by name |
+| Averaging a property is `AGGREGATE average ON "Score"` | Both `AGGREGATE average OF` and `AGGREGATE average "Score"` are parse errors |
+
+**And the one that cost real time: `replace_content` reuses existing blocks, and a reused
+block can keep its old position.** Rewriting a page whole does not lay the blocks out in
+the order you wrote. On four pages exactly one `<columns>` row jumped above the page bar,
+and on Reviews a callout whose text had been replaced stayed where the old callout sat.
+Pages with a single columns row came out correct; pages with two or more did not.
+
+The fix is to read the page back after every `replace_content` and move the stray block
+with a targeted `update_content` — a delete and a re-insert in one call, which the tool
+applies as a move rather than a delete. Every page in this rebuild was verified this way,
+and four needed the second pass.
