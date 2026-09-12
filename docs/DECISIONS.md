@@ -355,3 +355,48 @@ under different words:
 Across pages the opposite rule applies: the same concept keeps the same word everywhere.
 Overdue is *Overdue* on Today, Command Center and Tasks — repeating a name for one idea is
 consistency, and only repeating it for two different things, or twice on one tile, is noise.
+
+## One bar, every page
+
+Each page bar used to list only its own zone's siblings, so Today → Projects was two
+taps: home, then Projects. Thirteen pages now carry the **same single-line bar**, with
+the current page bold and unlinked and every other destination a link:
+
+```
+NAZZIM · Today · Inbox · Command · Tasks · Projects · Goals · Knowledge · Reviews · Analytics · Archive
+```
+
+One tap from anywhere to anywhere. The zone label in the bar was dropped — the callout's
+colour and icon already carry it, and a word that repeats what the colour says is the
+same duplication the labels audit removed. Setup pages get a second line for Start Here,
+Settings & Help and System — Databases.
+
+This is the piece that makes thirteen pages read as one product rather than thirteen
+documents that happen to share a workspace.
+
+## The home page, finally rebuilt
+
+Home was the last page still shaped the old way, and the first one anybody opens: a quote,
+a callout, five zone cards, then **seven stacked linked views** duplicating Today and
+Command Center between them.
+
+It now runs brand line → promise → five zone cards → *What should I do now?* → three
+compact numbers (Overdue · Due today · Inbox) → **one list**, *Do this next*, sorted by
+priority then due date → one toggle explaining the loop.
+
+Six of the seven views are gone. The cards stay above the fold because they are what a
+buyer sees first and what makes the breadth of the system legible in one screen; the
+answer sits directly under them.
+
+## Compact by default
+
+Every number tile is now `HEIGHT small`, matching the tiles the original build shipped
+with. This matters most on a phone: Notion stacks columns vertically there, so a
+three-tile strip becomes three stacked blocks, and the difference between the default
+height and `small` is roughly a third of a screen on every dashboard.
+
+Three constraints remain outside the API's reach and are worth stating plainly: column
+stacking on mobile cannot be turned off, buttons and database templates still cannot be
+created programmatically, and none of this layout work has ever been seen rendered from
+here — every claim above is verified by reading the page and view configs back, not by
+looking at the result.
