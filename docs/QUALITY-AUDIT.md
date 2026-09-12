@@ -213,6 +213,18 @@ cost mobile readability to chase a point.
 
 ### Design & Brand — 9/10
 
+**This score was wrong when first written, and the correction is the most
+important line in this document.** The day after it was given, a screenshot of
+the home page's primary list showed rows reading `P1 Critical · September 10,
+2026 · Sample · Build a 3x per week training routine · Next · Sample · P…` —
+the project name dominating, the task name last and truncated. Every one of the
+twenty-six content views in the product had its title last in `displayProperties`,
+which is render order. On the surface a buyer sees first, that was a 0/10.
+
+It is fixed — title first in all twenty-six, with a property budget per view type
+and relations removed from list rows, where they cost more width than the title
+and every chip combined. The 9/10 below describes the product as it stands now.
+
 One page grammar everywhere, one navigation bar, two colour registers that
 never share a surface (status colours only on data, zone colours only on
 navigation), Notion's built-in icons rather than emoji, no decorative headers.
@@ -234,10 +246,12 @@ no critical function depends on a wide multi-column layout any more.
 
 **The missing point is unverified rather than known-bad.** I cannot render the
 Notion mobile app from here, so every mobile claim in this audit is reasoned
-from layout primitives and API round-trips. The last mobile screenshot you sent
-is the only time this build has been checked against a real phone, and it found
-a problem I had not predicted. I am not awarding a point on evidence I do not
-have.
+from layout primitives and API round-trips. Both times this build has been
+checked against a real screen, the screenshot found something no structural
+check could see — first the home page opening with a wall of prose, then the
+title being last in every view. Structural correctness and visual correctness
+are different properties and I can only observe one of them. I am not awarding a
+point on evidence I do not have.
 
 ### Customization — 4/5
 

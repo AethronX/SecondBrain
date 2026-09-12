@@ -606,3 +606,64 @@ Reviews page now opens with all four named, costed and located: Daily 2 minutes 
 Weekly 30 minutes here, Monthly 45 minutes, Yearly 2 hours, with an explicit adoption order
 — start weekly, add monthly after the fourth week, yearly can wait until there is a year
 worth reading.
+
+## The title was last in every view I built
+
+A screenshot of the home page's *Do this next* list:
+
+```
+P1 Critical  ·  September 10, 2026  ·  📄 Sample · Build a 3x per week training
+routine  ·  Next  ·  📄 Sample · P…
+```
+
+The project name dominates every row, the same project repeats down the whole
+list, and the task name — the only thing the list exists to show — is last and
+truncated to `Sample · P…`. The user's rating was 0/10 and it was correct.
+
+The cause is one line of stored config:
+
+```json
+"displayProperties": ["Priority","Due Date","Project","Status","Task"]
+```
+
+**`displayProperties` order is render order, and `Task` is the title.** Putting
+the title last in that array pushes it to the far right of the row, where it is
+the first thing to be clipped. Nothing about the DSL warns you: `SHOW` accepts
+any order and the API returns success.
+
+I had written every view this way. Twenty-six content views across eleven pages,
+built over the whole project, every one of them with the title last — because
+the first one I wrote read naturally as *"show me priority, date, project,
+status, and the task"* and I copied that shape forward without ever seeing it
+render.
+
+### The rules now
+
+1. **The title is always the first entry in `SHOW`.** No exceptions.
+2. **Never show the property the view is grouped or filtered by.** A board
+   grouped by `Status` does not need a Status chip on every card; a view filtered
+   to `Overdue` does not need an overdue flag.
+3. **Property budget by view type** — list 2, board card 2–3, gallery card 3–5,
+   calendar/timeline 1–2, table as many as useful. Lists and cards are one line
+   of horizontal space; a table has real columns.
+4. **Relations are the most expensive thing you can put in a row.** They render
+   with a page icon and the full page title, so one `Project` relation can be
+   longer than the title plus every chip combined. They belong on the item's own
+   page, not in a list.
+
+Applied across all twenty-six views. The same *Do this next* list now reads
+`Draft the weekly plan · P1 Critical · Sep 10`.
+
+### Why the audit did not catch this
+
+The quality audit scored Design & Brand 9/10 the day before this screenshot, and
+it was wrong — not by a point, by a category. Every check in that audit was an
+API round-trip: filters correct, sorts correct, relations sound, structure
+verified. All of it true, and none of it looks at the rendered page.
+
+This is the second time in this build that a user screenshot found something no
+amount of structural verification could: the first was the home page opening
+with a thousand pixels of prose, this is the title being last in every view. The
+lesson is not "verify more carefully" — the round-trips were accurate. It is that
+**structural correctness and visual correctness are different properties, and I
+can only observe one of them.**
