@@ -424,3 +424,33 @@ And the ceiling that no amount of layout work moves: **Notion stacks columns ver
 on phones.** The number strips, the paired views and the Analytics bands are all a
 desktop gain and a mobile no-op. Every page is still correct and readable on a phone —
 just taller than the layout implies.
+
+## PARA was missing a letter
+
+I rated the information architecture 20/20 and was wrong. **Areas had no page.** Projects,
+Resources and Archive each had a destination; Areas — the hub every project, task, note and
+resource links to, and the *A* in PARA — existed only as a gallery inside Command Center.
+Anyone who knows the method would have gone looking for it and not found it.
+
+It exists now, in the BUILD group, and carries the one view no other page has: **Areas
+grouped by `Type` — Life, Work, Growth.** Three columns that are wildly uneven is the most
+useful sentence this system will ever say about someone's life, and no number on Analytics
+says it as plainly. Above it sit three counts and a gallery of the areas themselves with
+purpose, standard, and their live project and task counts.
+
+The page also states the thing that makes Areas worth having: an area with zero open tasks
+for a month is not a failure, it is information — you have quietly stopped maintaining
+that part of your life.
+
+## The Sunday ritual was only half built
+
+Reviews looked backwards and stopped. The four question columns end with "write three
+priorities for next week" and there was nowhere to put them.
+
+A calendar of the week ahead now sits directly under the review board, so the ritual
+closes properly: read the score, work the four columns, write the review, then drag those
+three priorities onto real days. That last step is the whole value proposition of the
+weekly-planning apps this audience already pays for, and it was one view away.
+
+Fourteen pages now, and every one of the nine databases has a destination that answers a
+question nothing else answers.
