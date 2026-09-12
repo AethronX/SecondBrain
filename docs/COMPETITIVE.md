@@ -135,10 +135,12 @@ underperforms — and it dilutes the one sentence that makes NAZZIM easy to sell
    seven, with Transactions related to **Areas**, so the system can answer *which
    part of my life costs the most*. That is an answer their seven separate
    databases cannot give, and it turns a parity feature into a differentiator.
-2. **Ship a free tier.** The Free edition is already specified in Settings —
-   Inbox, Tasks, Projects, Areas, Today. It exists on paper. Shipping it is the
-   single highest-return competitive action available, because it attacks the
-   thing that actually makes them win: the funnel.
+2. **Ship a free tier. — DONE.** Built as a standalone workspace with its own
+   four databases, eight pages, thirteen views and seeded sample data, so it can
+   be duplicated and given away without exposing anything in Pro. `Attention` is
+   included on purpose: the free product has to demonstrate the reason to
+   upgrade, not just withhold it. See the DECISIONS entry "The Free edition,
+   built as a real product".
 3. **Say PARA and GTD out loud** on the storefront and on Start Here. Free, and
    it is already true.
 4. **Accept the buttons gap** and turn it into a line of copy: every view has a

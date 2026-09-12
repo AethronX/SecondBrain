@@ -725,3 +725,52 @@ Areas, Archive and Command Center were already one-per-database and unchanged.
 
 Thirteen tiles deleted. The captions that survive are now the only label on
 their block, which is what they were always meant to be.
+
+## The Free edition, built as a real product
+
+The competitor's advantage was never their feature list — it was a free template
+with 23,000 downloads and 334 public five-star ratings feeding a paid upsell.
+NAZZIM had a paid product and no funnel. So the Free edition, which had existed
+only as a paragraph in Settings & Help, is now a real, standalone, giveaway-ready
+workspace.
+
+**It is not a stripped copy of Pro.** It has its own four databases, so it can be
+duplicated and handed to a stranger without touching anything in Pro.
+
+| | Free | Pro |
+| --- | --- | --- |
+| Databases | Areas, Projects, Tasks, Inbox | those four plus Goals, Notes, Resources, Daily Log, Reviews |
+| Pages | Home, Today, Inbox, Tasks, Projects, Areas, Start Here | those plus Command Center, Knowledge, Reviews, Analytics, Archive |
+| Computed | `Attention`, `Progress`, `Timeline`, `Today Tier`, area rollups | all of that plus `Health` on projects and goals, twenty charts, a scored review rhythm |
+| Onboarding | five timed steps, six minutes | seven timed steps, ten minutes |
+
+**`Attention` is deliberately in Free.** It was tempting to hold the computed
+judgements back for Pro, but `Attention` — *No next action*, *Overdue tasks*,
+*No open tasks* — is the single thing that makes NAZZIM feel like an instrument
+rather than a filing cabinet. A free product that does not demonstrate the reason
+to upgrade is not a funnel, it is just a giveaway. One of the two seeded sample
+projects ships **without** a Next Action on purpose, so the column fires on first
+open and the mechanism explains itself.
+
+`Health` — the elapsed-time comparison — stays in Pro. That is the honest tier
+line: Free tells you *what* is stuck, Pro tells you *how far behind* you are.
+
+### Three API facts this build cost
+
+- **Multi-statement DDL is validated against the pre-update schema.** A batch
+  that adds `Open` and then adds `Overdue` referencing `prop("Open")` fails with
+  a bare `Type error with formula`, because `Open` does not exist yet when the
+  batch is checked. Split ADD COLUMN statements by dependency level: independent
+  formulas together, dependent ones in a following call. The error message names
+  neither the statement nor the property, so this is worth remembering.
+- **`formulaCode://` URIs cannot be fetched.** There is no way to read an
+  existing formula's expression back through this API — only its name and type.
+  Formula source has to be kept in the repo or re-derived.
+- **`replace_content` scrambles order when a page already has appended blocks.**
+  Creating views with `parent_page_id` appends them to the page end; a subsequent
+  `replace_content` reuses those blocks but does not honour the new ordering. On
+  the Free home page it produced divider → upsell → capture → nav → list → title.
+  The repair is the same delete-and-reinsert move in a single `update_content`
+  call that fixed the Pro pages, and it is reliable. Better: build the page text
+  first and let the `<database>` tags create the views inline, rather than
+  creating views and then writing text around them.
