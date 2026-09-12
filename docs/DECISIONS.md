@@ -326,3 +326,32 @@ The fix is to read the page back after every `replace_content` and move the stra
 with a targeted `update_content` — a delete and a re-insert in one call, which the tool
 applies as a move rather than a delete. Every page in this rebuild was verified this way,
 and four needed the second pass.
+
+## One label per thing
+
+The number tiles shipped with the label written twice. A Notion chart block renders
+its **view name** as the block heading and its **caption** underneath, so a tile created
+with `name: "Due today"` and `CAPTION "Due today"` reads the same words twice, stacked.
+Twenty-six tiles did that.
+
+`CAPTION ""` clears it, and the filter survives the update — so every tile now carries a
+single short label above its number, and nothing else.
+
+Captions were kept wherever they say something the name does not. *Active projects* on
+Analytics is captioned "Three to five is a healthy load"; *Waiting to be read* is captioned
+"Over ten means you are collecting, not learning." Those are judgements, not repetition.
+
+The same audit caught twin names **within** a page — two blocks that mean the same thing
+under different words:
+
+| Page | Was | Now |
+|---|---|---|
+| Command Center | an *Overdue* tile above a *Late* list | the list is gone; Today owns overdue triage, Command Center shows the count |
+| Command Center | *Waiting on someone else* and *Waiting to be processed* | *Blocked on someone else* and *Still to decide* |
+| Reviews | a *Reviews run* tile above an *Every review you have run* board | *Reviews* and *Your review history* |
+| Inbox | a *Decided* tile above a *Decide what each one is* board | *Processed* and *Decide what each one is* |
+| Archive | a *Goals closed* tile above *Goals, achieved and let go* | *Goals* and *Achieved and let go* |
+
+Across pages the opposite rule applies: the same concept keeps the same word everywhere.
+Overdue is *Overdue* on Today, Command Center and Tasks — repeating a name for one idea is
+consistency, and only repeating it for two different things, or twice on one tile, is noise.
