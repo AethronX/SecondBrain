@@ -485,3 +485,39 @@ needs, and that the rest is depth rather than homework.
 
 That is progressive adoption without progressive disclosure, and it is the one thing the
 reviews say every template in this category gets wrong.
+
+## A view's name is invisible, and I shipped 29 unlabelled tiles
+
+Seen rendered for the first time, on a phone, in dark mode. Two things were wrong and one
+of them was a mistake of mine.
+
+**A linked database block does not display its view name.** It shows the *source database*
+name with an open-source arrow — `↗ Tasks` — and the view name appears nowhere. So the
+only human label a chart tile can carry is its **caption**, and the earlier labels audit
+removed all twenty-nine of them on the grounds that name and caption were saying the same
+thing twice.
+
+They were not duplicates. The name was never on screen. Three tiles on the home page read
+`↗ Tasks · Count all · 4`, `↗ Tasks · Count all · 5`, `↗ Inbox · Count all · 0` — three
+numbers with no meaning at all, on the first screen a buyer sees.
+
+Every caption is restored. The rule that replaces the old one: **the block header already
+says which database this is, so the caption says which cut** — `Tasks · Overdue`,
+`Projects · Need attention`, `Reviews · Average score`. Still one label per tile, but now
+it is the one that renders.
+
+## The home page was a brochure, not an instrument
+
+The second problem was structural. A visitor scrolled roughly a thousand pixels of prose
+and five stacked colour blocks before reaching a single live number, because on a phone
+the five zone cards stack and each page link inside them renders as its own full-width
+block — a five-card row becomes about twenty blocks.
+
+The page now opens with the work: tagline, two lines of promise, three numbers, the
+*Do this next* list. Navigation sits below a divider as five compact cards whose links are
+**inline text** rather than child-page blocks — two lines each instead of five or six.
+
+The fourteen child pages still have to exist as real `<page>` blocks somewhere, or Notion
+deletes them, so they live in the closing toggle alongside the explanation of how the
+system fits together. Nothing is lost, nothing is hidden that matters, and the first
+screen is now an instrument.
