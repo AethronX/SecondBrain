@@ -667,3 +667,61 @@ with a thousand pixels of prose, this is the title being last in every view. The
 lesson is not "verify more carefully" — the round-trips were accurate. It is that
 **structural correctness and visual correctness are different properties, and I
 can only observe one of them.**
+
+## ↗ Tasks, three times in a row
+
+A screenshot of the Today page: three number tiles side by side, each headed
+`↗ Tasks`, each labelled `Count all`, showing 5, 4 and 0. Six identical strings
+of chrome for three numbers.
+
+The distinct labels were there — `Due today`, `Overdue`, `Done today` sit as
+captions under each number, below the crop. What repeated was the header.
+
+### That header cannot be renamed, and finding out cost something
+
+A linked database block renders the **source database name** as its header. The
+Notion-flavored Markdown `<database>` tag has a title slot that fetches back
+empty, so it looked settable. It is not a block label — **it is a mirror of the
+data source name.** Writing `TITLETEST` into one tile's tag renamed the entire
+**Tasks** database to "TITLETEST", everywhere in the product, in one call.
+
+Caught on the read-back and reverted immediately with `update_data_source`
+`title: "Tasks"`. Nothing else was affected — the tag is the data source's name,
+so setting it back restored every reference at once.
+
+**Rule: never put text in the title slot of a `<database>` tag.** It is a rename
+of the database, not a caption. The caption is the only per-block label, and it
+is set through the view's `CHART … CAPTION` or the view name.
+
+### The fix is fewer blocks, not better labels
+
+Since the header is always the database name, three blocks from one database
+side by side will always print that name three times. The only fix is to stop
+having three blocks — and the moment that was forced, the better question became
+obvious: **what were three counts of the same database doing above a list of the
+same rows?** Every one of those tiles sat directly on top of a view containing
+exactly the items it counted. They were decoration.
+
+One tile per database per row, keeping the number the view below does *not*
+already answer:
+
+| Page | Was | Now |
+| --- | --- | --- |
+| Home | Overdue · Due today · Inbox · Active goals | Overdue · Inbox · Active goals |
+| Today | Due today · Overdue · Done today | none — the overdue list *is* the signal |
+| Tasks | Open · Overdue · Done this week | Overdue |
+| Projects | Active · Need attention · Completed | Need attention |
+| Goals | Active · Achieved · Dropped | Active |
+| Inbox | Waiting · Processed | Waiting |
+| Knowledge | Written · Saved · Still to read | Written · Still to read |
+| Reviews | Run so far · Average score · Weekly | Average score |
+| Analytics | six, in two rows of three | three, one per database |
+
+Today loses its number strip entirely and is better for it: the page already
+pulls overdue tasks out above the board, so a count of them one block higher was
+the same four rows twice, and it made three consecutive `↗ Tasks` headers.
+
+Areas, Archive and Command Center were already one-per-database and unchanged.
+
+Thirteen tiles deleted. The captions that survive are now the only label on
+their block, which is what they were always meant to be.
