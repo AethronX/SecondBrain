@@ -50,6 +50,7 @@ html = f'''<link rel="stylesheet" href="_d.css">
   <div class="topblock">
     <div class="eyebrow">Notion Life OS · Desktop &amp; Mobile</div>
     <div class="hl">Most systems show what you owe.<br><b>This one shows what you did.</b></div>
+    <div class="accent"></div>
   </div>
   <div class="stage">
     <div class="rig">
