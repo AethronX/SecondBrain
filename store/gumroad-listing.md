@@ -10,11 +10,17 @@ library/Discover tile as a square, so they are separate files, not crops.
 
 | File | Size | Where it goes |
 |---|---|---|
-| `g1-hero.png` | 1280×720 | Cover 1 |
-| `g2-mobile.png` | 1280×720 | Cover 2 |
-| `g3-pages.png` | 1280×720 | Cover 3 |
-| `g4-inside.png` | 1280×720 | Cover 4 |
+| `g5-fan.png` | 1280×720 | **Cover 1** — lead with this one |
+| `g1-hero.png` | 1280×720 | Cover 2 |
+| `g2-mobile.png` | 1280×720 | Cover 3 |
+| `g3-pages.png` | 1280×720 | Cover 4 |
+| `g4-inside.png` | 1280×720 | Cover 5 |
 | `thumb.png` | 600×600 | Thumbnail |
+
+The five tablet renders (`t1-home` … `t5-analytics`, 780×1120 each) are the
+individual pages the fan is built from. Drop them inline in the description
+under the "What you get" list — Gumroad renders images in rich text, and a
+buyer who scrolls that far wants to see the pages, not read about them.
 
 ---
 
