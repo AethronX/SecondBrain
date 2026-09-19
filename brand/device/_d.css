@@ -99,3 +99,24 @@ body{font-family:IS,sans-serif;-webkit-font-smoothing:antialiased;background:#f2
 .bat span{display:block;height:100%;width:72%;background:#e8e8e8;border-radius:2px}
 .bat:after{content:'';position:absolute;right:-6px;top:5px;width:3px;height:6px;background:#e8e8e8;border-radius:0 2px 2px 0}
 .wifi{display:block}
+
+/* ---------- marketing frame ---------- */
+.topblock{display:flex;flex-direction:column;gap:30px}
+.hl{font-size:88px;font-weight:700;letter-spacing:-.035em;line-height:1.08;color:#a3a39f;max-width:1560px}
+.hl b{color:#111;font-weight:700}
+.foot .wordmark{font-size:64px}
+.foot .tag{font-size:30px;margin-top:8px}
+.foot .meta{font-size:23px}
+
+/* ---------- accomplishment UI ---------- */
+.big.g{color:#4dab9a}
+.big.p{color:#9a6dd7}
+.big.o{color:#ffa344}
+.chart{display:flex;align-items:flex-end;gap:10px;border-bottom:1px solid #2f2f2f}
+.chart .b{flex:1;background:#4dab9a;border-radius:3px 3px 0 0;min-height:3px}
+.chart .b.dim{background:#2d4f47}
+.xax{display:flex;justify-content:space-between;color:#6f6f6f;padding-top:9px}
+.goal{display:flex;align-items:center;gap:15px;padding:11px 0;border-bottom:1px solid #232323}
+.goal:last-child{border-bottom:none}
+.goal .gt{flex:1;color:#e4e4e4}
+.pct{font-weight:700;color:#4dab9a}

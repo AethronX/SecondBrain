@@ -774,3 +774,66 @@ line: Free tells you *what* is stuck, Pro tells you *how far behind* you are.
   call that fixed the Pro pages, and it is reliable. Better: build the page text
   first and let the `<database>` tags create the views inline, rather than
   creating views and then writing text around them.
+
+## The home page opened on debt
+
+Every number on the home page was a number you owed. Seven tasks open. Three
+things waiting in the inbox. Overdue, in red, above everything else. The page
+was structurally correct and it was a guilt machine, and a guilt machine is not
+something anyone wants to open on a Sunday night — which is the moment the whole
+system depends on.
+
+The competitor research had already said it without my hearing it: the templates
+that sell show streaks, completion rings, "you shipped twelve things this week."
+I had read that as decoration. It is not decoration. It is the only thing that
+makes a system survive month three. People rarely abandon a life OS over a
+missing feature. They abandon it when they stop seeing the progress they made.
+
+So the page was inverted. It now opens on the result and closes on the
+obligation:
+
+| Position | Before | After |
+|---|---|---|
+| 1 | Open tasks · Inbox waiting · Goals on track | Finished this week · Average goal progress · Weeks you showed up |
+| 2 | Today's work, overdue first | A bar for every day you completed something |
+| 3 | Inbox capture | Active goals with percent, health and days left |
+| 4 | Sunday review | Today's work, overdue first |
+| 5 | Navigation | Inbox capture, then Sunday review, then navigation |
+
+Nothing was invented to make this possible. `Done This Week`, `Completed Date`,
+`Progress` and `Health` were already computed and were already being ignored by
+the page that mattered most. The three old tiles were deleted rather than kept
+alongside the new ones: two rows of numbers is not twice the proof, it is half
+the attention.
+
+The Sunday-review callout was rewritten to earn its place in the new order —
+"that half hour is what turns the green numbers above into a line that keeps
+climbing" — because a habit is easier to keep when you can see what it pays for.
+
+### Three API facts this cost
+
+- The view DSL is **semicolon-separated directives**, not newline-separated, and
+  the content parameter is called `configure`. `CHART` and `GROUP BY` are
+  separate directives: `CHART column AGGREGATE count; GROUP BY "Completed Date"`.
+  Putting `AGGREGATE` after `GROUP BY` fails with `Unknown directive`.
+- `FILTER "Status" is "Active"` is invalid. After `is` the parser expects only
+  `EMPTY`. Select equality is `=`.
+- `replace_content` did **not** scramble block order this time, because every
+  view was written inline as a `<database url data-source-url>` tag in the new
+  content rather than appended and then described around. That is the reliable
+  way to reorder a page that holds linked views.
+
+### And a marketing frame, because the images were selling features
+
+The three showcase renders were accurate and cold. They showed chips and counts
+— the mechanism. They now carry a benefit headline above the device, set in two
+weights so the payoff lands on its own line:
+
+- Desktop — "End every week knowing **exactly what you finished.**"
+- Mobile — "The first thing you see **is what you did.**"
+- Both — "Most systems show what you owe. **This one shows what you did.**"
+
+The renders were rebuilt from the new page, so the claim and the screenshot are
+the same artifact. That constraint is the point: if the headline ever stops
+being true, the image stops matching the product, and the mismatch is visible
+rather than arguable.
