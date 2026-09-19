@@ -30,8 +30,8 @@ CSS = f"""
 @font-face{{font-family:IS;src:url('file:///mnt/skills/examples/canvas-design/canvas-fonts/InstrumentSans-Bold.ttf');font-weight:700}}
 @font-face{{font-family:GM;src:url('file:///mnt/skills/examples/canvas-design/canvas-fonts/GeistMono-Regular.ttf')}}
 *{{margin:0;padding:0;box-sizing:border-box}}
-html,body{{width:{W}px;height:{H}px;overflow:hidden;background:#F5F1E8}}
-body{{font-family:IS,sans-serif;-webkit-font-smoothing:antialiased}}
+html,body{{width:{W}px;height:{H}px;overflow:hidden;background:#F7F6FD}}
+body{{font-family:IS,'DejaVu Sans',sans-serif;-webkit-font-smoothing:antialiased}}
 .t{{width:{W}px;height:{H}px;background:linear-gradient(158deg,#55555a,#2a2a2d);
   border-radius:34px;padding:{(W-SW)//2}px;display:flex;align-items:center;justify-content:center}}
 .ts{{width:{SW}px;height:{SH}px;background:#191919;border-radius:22px;overflow:hidden;
@@ -48,7 +48,7 @@ h1{{font-size:42px;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bott
 .q i{{display:block;font-size:22px;color:#9b9b9b;font-style:normal}}
 .co{{border-radius:7px;padding:14px 17px;display:flex;gap:13px;margin-bottom:17px;font-size:19px;line-height:1.45}}
 .co .i{{flex:none;font-size:20px}}
-.g-bg{{background:#1c3829;color:#8fbfae}} .g-bg b{{color:#d6f0e5}} .g-bg .i{{color:#4dab9a}}
+.g-bg{{background:#2b2233;color:#a78bc4}} .g-bg b{{color:#e6d6f7}} .g-bg .i{{color:#b58ae0}}
 .p-bg{{background:#2b2233;color:#a78bc4}} .p-bg b{{color:#e6d6f7}} .p-bg .i{{color:#b58ae0}}
 .b-bg{{background:#1d2a38;color:#8aa9c6}} .b-bg b{{color:#d3e6f7}} .b-bg .i{{color:#7ab3e8}}
 .o-bg{{background:#3a2c1a;color:#c9a97a}} .o-bg b{{color:#f5e2c6}} .o-bg .i{{color:#ffa344}}
@@ -58,7 +58,7 @@ h1{{font-size:42px;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bott
 .tile .s{{font-size:16px;color:#9b9b9b;text-align:left;margin-bottom:6px}}
 .tile .n{{font-size:44px;line-height:1.05}}
 .tile .c{{font-size:15px;color:#9b9b9b}}
-.gr{{color:#4dab9a}}.pu{{color:#9a6dd7}}.or{{color:#ffa344}}.bl{{color:#5e9ed6}}
+.gr{{color:#9a6dd7}}.pu{{color:#9a6dd7}}.or{{color:#ffa344}}.bl{{color:#5e9ed6}}
 .tabs{{display:flex;gap:18px;font-size:18px;color:#6f6f6f;border-bottom:1px solid #232323;
   padding-bottom:9px;margin-bottom:8px}}
 .tabs .on{{color:#e8e8e8;font-weight:700;box-shadow:0 9px 0 -7px #e8e8e8}}
@@ -72,7 +72,7 @@ h1{{font-size:42px;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bott
 .c-pur{{background:#3f2d5c;color:#9a6dd7}}.c-grn{{background:#1c3829;color:#4dab9a}}
 .dt{{font-size:16px;color:#9b9b9b;white-space:nowrap}}
 .chart{{display:flex;align-items:flex-end;gap:8px;border-bottom:1px solid #2f2f2f;height:130px}}
-.chart i{{flex:1;background:#4dab9a;border-radius:2px 2px 0 0}}
+.chart i{{flex:1;background:#9a6dd7;border-radius:2px 2px 0 0}}
 .cap{{font-size:16px;color:#9b9b9b;padding-top:8px}}
 .card{{border:1px solid #2f2f2f;border-radius:8px;padding:15px 17px;margin-bottom:13px}}
 .card .h{{font-size:22px;color:#fff;font-weight:700;margin-bottom:9px}}
@@ -107,14 +107,14 @@ tablet("t1-home", "nazzim-pro", f"""
 <div class="q"><b>You are further along than you think.</b><i>Turn information into execution.</i></div>
 <div class="co g-bg"><div class="i">◎</div><div><b>This week, you finished this.</b> Most systems open with what you owe. NAZZIM opens with what you did.</div></div>
 <div class="tiles">
- <div class="tile"><div class="s">↗ Tasks</div><div class="n gr">24</div><div class="c">Finished this week</div></div>
- <div class="tile"><div class="s">↗ Goals</div><div class="n pu">68%</div><div class="c">Average progress</div></div>
+ <div class="tile"><div class="s">↗ Tasks</div><div class="n" style="color:#9a6dd7">24</div><div class="c">Finished this week</div></div>
+ <div class="tile"><div class="s">↗ Goals</div><div class="n" style="color:#5e9ed6">68%</div><div class="c">Average progress</div></div>
  <div class="tile"><div class="s">↗ Reviews</div><div class="n or">9</div><div class="c">Weeks you showed up</div></div></div>
 <div class="vh">↗ Tasks</div><div class="chart">{bars}</div>
 <div class="cap">Every bar is a day you moved something forward</div>
 <div class="vh" style="margin-top:16px">↗ Goals</div>
-<div class="row"><div class="tk">Run a half marathon under 1:55</div><span class="pct gr">74%</span><span class="ch c-grn">On Track</span></div>
-<div class="row"><div class="tk">Ship the second edition of the course</div><span class="pct gr">62%</span><span class="ch c-grn">On Track</span></div>""")
+<div class="row"><div class="tk">Run a half marathon under 1:55</div><span class="pct" style="color:#5e9ed6">74%</span><span class="ch c-grn">On Track</span></div>
+<div class="row"><div class="tk">Ship the second edition of the course</div><span class="pct" style="color:#5e9ed6">62%</span><span class="ch c-grn">On Track</span></div>""")
 
 tablet("t2-today", "today", """
 <div class="ic" style="color:#9a6dd7">☀</div><h1>Today</h1>
@@ -157,10 +157,10 @@ tablet("t4-goals", "goals", """
 <div class="co b-bg"><div class="i">◎</div><div>Every task you tick rolls up into one of these. The bar is <b>your own metric</b>, against your own deadline.</div></div>
 <div class="tabs"><span class="on">Active</span><span>Timeline</span><span>Board</span></div>
 <div class="card"><div class="h">Run a half marathon under 1:55</div>
- <div class="m"><span class="pct gr">74%</span><span class="ch c-grn">On Track</span><span class="dt">61 days left</span><span class="ch c-grn">Health</span></div>
+ <div class="m"><span class="pct" style="color:#5e9ed6">74%</span><span class="ch c-grn">On Track</span><span class="dt">61 days left</span><span class="ch c-grn">Health</span></div>
  <div class="w">Metric — Training sessions completed out of the 50-session plan.<br>Why — Because the training is the point. The time is just how I will know it happened.</div></div>
 <div class="card"><div class="h">Ship the second edition of the course</div>
- <div class="m"><span class="pct gr">62%</span><span class="ch c-grn">On Track</span><span class="dt">88 days left</span><span class="ch c-pur">Career</span></div>
+ <div class="m"><span class="pct" style="color:#5e9ed6">62%</span><span class="ch c-grn">On Track</span><span class="dt">88 days left</span><span class="ch c-pur">Career</span></div>
  <div class="w">Metric — Lessons re-recorded out of 50.<br>Why — The first edition sold well and is now wrong in three places.</div></div>
 <div class="co b-bg" style="margin-top:4px"><div class="i">◷</div><div><b>Health</b> compares progress against elapsed time, so a goal that is quietly slipping says so long before the deadline arrives.</div></div>""")
 
@@ -180,7 +180,7 @@ tablet("t5-analytics", "analytics", """
    <div class="r"><div class="b" style="width:33%;background:#4dab9a"></div>4</div>
    <div class="r"><div class="b" style="width:18%;background:#ffa344"></div>2</div></div></div>
  <div class="mc"><div class="s">Completed per day</div><div class="bars">
-   """ + "".join(f'<i style="height:{b/5*100}%;background:#4dab9a"></i>' for b in BARS[:10]) + """</div></div>
+   """ + "".join(f'<i style="height:{b/5*100}%;background:#9a6dd7"></i>' for b in BARS[:10]) + """</div></div>
  <div class="mc"><div class="s">Weekly score</div><div class="big or">8.0</div><div class="s" style="text-align:center">Average, last 9 weeks</div></div></div>""")
 
 # ---- the fanned cover ----
@@ -197,22 +197,22 @@ shoot("g5-fan", 1280, 720, f"""<style>
 @font-face{{font-family:IS;src:url('file:///mnt/skills/examples/canvas-design/canvas-fonts/InstrumentSans-Bold.ttf');font-weight:700}}
 @font-face{{font-family:GM;src:url('file:///mnt/skills/examples/canvas-design/canvas-fonts/GeistMono-Regular.ttf')}}
 *{{margin:0;padding:0;box-sizing:border-box}}
-html,body{{width:1280px;height:720px;overflow:hidden;background:#F5F1E8}}
-body{{font-family:IS,sans-serif;-webkit-font-smoothing:antialiased}}
-.s{{width:1280px;height:720px;position:relative;overflow:hidden;background:#F5F1E8}}
+html,body{{width:1280px;height:720px;overflow:hidden;background:#F7F6FD}}
+body{{font-family:IS,'DejaVu Sans',sans-serif;-webkit-font-smoothing:antialiased}}
+.s{{width:1280px;height:720px;position:relative;overflow:hidden;background:#F7F6FD}}
 .wm{{position:absolute;left:52px;top:42px;z-index:20}}
-.wm .m{{font-weight:700;font-size:26px;letter-spacing:-.03em;color:#16130E;line-height:1}}
-.wm .t{{font-family:GM;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#A79F91;margin-top:6px}}
+.wm .m{{font-weight:700;font-size:26px;letter-spacing:-.03em;color:#0B0B14;line-height:1}}
+.wm .t{{font-family:GM;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#A8A8BC;margin-top:6px}}
 .hd{{position:absolute;left:0;right:0;top:96px;text-align:center;z-index:20}}
-.hd h2{{font-size:62px;font-weight:700;letter-spacing:-.038em;line-height:1.04;color:#A79F91}}
-.hd h2 b{{color:#16130E}}
-.hd p{{font-size:21px;color:#6B6156;margin-top:16px}}
-.hd .a{{height:5px;width:86px;background:#1E7A5A;border-radius:3px;margin:20px auto 0}}
+.hd h2{{font-size:62px;font-weight:700;letter-spacing:-.038em;line-height:1.04;color:#A8A8BC}}
+.hd h2 b{{color:#0B0B14}}
+.hd p{{font-size:21px;color:#6B6B80;margin-top:16px}}
+.hd .a{{height:5px;width:86px;background:linear-gradient(96deg,#4F52E8 0%,#9B51E0 100%);border-radius:3px;margin:20px auto 0}}
 .tab{{position:absolute;width:300px;display:block;border-radius:22px;
-  box-shadow:0 30px 60px -26px rgba(48,34,18,.55)}}
+  box-shadow:0 30px 60px -26px rgba(28,22,70,.48)}}
 </style>
 <div class="s">
-  <div class="wm"><div class="m">NAZZIM</div><div class="t">Second Brain Pro</div></div>
+  <div class="wm"><div class="m">Nazzim <span style="color:#9A9AAE">نظّم</span></div><div class="t">Second Brain Pro</div></div>
   <div class="hd">
     <h2>Not a dashboard.<br><b>A whole system.</b></h2>
     <p>Fourteen pages · Nine linked databases · Twenty computed charts</p>

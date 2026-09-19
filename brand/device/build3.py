@@ -60,7 +60,7 @@ html = f'''<link rel="stylesheet" href="_d.css">
   </div>
   <div class="foot">
     <div>
-      <div class="wordmark">NAZZIM</div>
+      <div class="wordmark">Nazzim <span class="ar">نظّم</span></div>
       <div class="tag">Second Brain Pro · Notion template</div>
     </div>
     <div class="meta">The same proof on both screens<br>14 pages · 9 databases</div>

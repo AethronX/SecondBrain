@@ -4,7 +4,7 @@ from pngcrop import crop_height
 
 BARS = [1,2,2,3,1,3,1,1,2,4,3,5,5,3]          # the product's real 14-day completion shape
 ZONE = {
-    "ROOT":   "#4dab9a", "DAILY":  "#9a6dd7", "BUILD":  "#5e9ed6",
+    "ROOT":   "#7C4DE8", "DAILY":  "#9a6dd7", "BUILD":  "#5e9ed6",
     "THINK":  "#4dab9a", "RHYTHM": "#ffa344", "SYSTEM": "#8f8madd".replace("add",""),
 }
 ZONE["SYSTEM"] = "#8f8a82"
@@ -34,9 +34,9 @@ TPL = """<!doctype html><meta charset="utf-8">
 @font-face{{font-family:GM;src:url('file:///mnt/skills/examples/canvas-design/canvas-fonts/GeistMono-Regular.ttf')}}
 *{{margin:0;padding:0;box-sizing:border-box}}
 html,body{{width:1600px;height:400px;overflow:hidden}}
-body{{background:#16130E;-webkit-font-smoothing:antialiased}}
+body{{background:#0E0E18;-webkit-font-smoothing:antialiased}}
 .cv{{width:1600px;height:400px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:flex-end;padding:0 92px;
-  background:#191510}}
+  background:#0E0E18}}
 .grain{{position:absolute;inset:0;z-index:5;opacity:.05;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}}
 .glow{{position:absolute;left:-180px;top:-280px;width:940px;height:940px;border-radius:50%;
@@ -44,10 +44,10 @@ body{{background:#16130E;-webkit-font-smoothing:antialiased}}
 .bars{{position:absolute;left:92px;top:0;bottom:0;display:flex;align-items:flex-end;gap:13px;padding-bottom:100px;z-index:1}}
 .bars i{{width:23px;border-radius:3px 3px 0 0}}
 .txt{{position:relative;z-index:3;text-align:right}}
-.eb{{font-family:GM;font-size:21px;letter-spacing:.44em;text-transform:uppercase;color:#7C7468}}
+.eb{{font-family:GM;font-size:21px;letter-spacing:.44em;text-transform:uppercase;color:#7A7A90}}
 .rule{{height:5px;width:62px;background:{accent};border-radius:3px;margin:17px 0 21px auto}}
 .nm{{font-family:IS;font-size:70px;font-weight:700;letter-spacing:.012em;text-transform:uppercase;
-  color:#F5F1E8;line-height:1;white-space:nowrap}}
+  color:#F2F2F8;line-height:1;white-space:nowrap}}
 </style>
 <div class="cv">
   <div class="glow"></div>

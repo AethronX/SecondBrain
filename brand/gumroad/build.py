@@ -23,7 +23,7 @@ def device_png(name, w, h, css, body):
     as an <img>. A CSS transform leaves the un-scaled box outside the viewport,
     and Chromium does not paint what never landed in it."""
     html = ('<link rel="stylesheet" href="../device/_d.css">\n<style>\n'
-            f'html,body{{width:{w}px;height:{h}px;overflow:hidden;background:#F5F1E8}}\n'
+            f'html,body{{width:{w}px;height:{h}px;overflow:hidden;background:#F7F6FD}}\n'
             f'.wrap{{width:{w}px;height:{h}px;display:flex;align-items:center;justify-content:center}}\n'
             f'{css}\n</style>\n<div class="wrap">{body}</div>')
     pathlib.Path(f"_{name}.html").write_text(html)
@@ -40,18 +40,18 @@ device_png("_ph", 900, 1520, PH_CSS, PH)
 
 BASE = """<link rel="stylesheet" href="../device/_d.css">
 <style>
-html,body{width:%(W)spx;height:%(H)spx;overflow:hidden;background:#F5F1E8}
-.g{width:%(W)spx;height:%(H)spx;position:relative;overflow:hidden;background:#F5F1E8;
+html,body{width:%(W)spx;height:%(H)spx;overflow:hidden;background:#F7F6FD}
+.g{width:%(W)spx;height:%(H)spx;position:relative;overflow:hidden;background:#F7F6FD;
    display:flex;align-items:center;padding:0 0 0 76px}
 .gl{width:%(LW)spx;flex:none;z-index:4}
-.ge{font-family:GM;font-size:16px;letter-spacing:.34em;text-transform:uppercase;color:#9C9284}
-.gh{font-size:%(HS)spx;font-weight:700;letter-spacing:-.036em;line-height:1.06;color:#A79F91;margin-top:16px}
-.gh b{color:#16130E;font-weight:700}
-.ga{height:5px;width:86px;background:#1E7A5A;border-radius:3px;margin-top:20px}
-.gs{font-size:19px;color:#6B6156;margin-top:20px;line-height:1.55}
+.ge{font-family:GM;font-size:16px;letter-spacing:.34em;text-transform:uppercase;color:#9A9AAE}
+.gh{font-size:%(HS)spx;font-weight:700;letter-spacing:-.036em;line-height:1.06;color:#A8A8BC;margin-top:16px}
+.gh b{font-weight:700;background:linear-gradient(96deg,#4F52E8 0%%,#9B51E0 100%%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.ga{height:5px;width:86px;background:linear-gradient(96deg,#4F52E8 0%%,#9B51E0 100%%);border-radius:3px;margin-top:20px}
+.gs{font-size:19px;color:#6B6B80;margin-top:20px;line-height:1.55}
 .gw{position:absolute;left:76px;bottom:44px;z-index:4}
-.gw .m{font-weight:700;font-size:28px;letter-spacing:-.03em;color:#16130E;line-height:1}
-.gw .t{font-family:GM;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#A79F91;margin-top:7px}
+.gw .m{font-weight:700;font-size:28px;letter-spacing:-.03em;color:#0B0B14;line-height:1}
+.gw .t{font-family:GM;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#A8A8BC;margin-top:7px}
 %(EXTRA)s
 </style>
 %(BODY)s"""
@@ -68,7 +68,7 @@ def page(name, w, h, lw, hs, extra, body):
     pathlib.Path(f"_{name}.html").unlink()
     print(out)
 
-WM = '<div class="gw"><div class="m">NAZZIM</div><div class="t">Second Brain Pro</div></div>'
+WM = '<div class="gw"><div class="m">Nazzim <span style="color:#9A9AAE">نظّم</span></div><div class="t">Second Brain Pro</div></div>'
 
 # 1 — hero, laptop
 page("g1-hero", 1280, 720, 560, 54,
@@ -94,7 +94,7 @@ CELLS = ["nazzim-pro", "today", "tasks", "reviews"]   # one per zone, sized to s
 page("g3-pages", 1280, 720, 470, 48,
  """.grid{position:absolute;right:62px;top:50%;transform:translateY(-50%);width:606px;
    display:grid;grid-template-columns:1fr;gap:15px;z-index:2}
- .grid div{border-radius:7px;overflow:hidden;box-shadow:0 12px 26px -16px rgba(48,34,18,.5)}
+ .grid div{border-radius:7px;overflow:hidden;box-shadow:0 12px 26px -16px rgba(28,22,70,.45)}
  .grid img{display:block;width:100%;height:auto}""",
  f'''<div class="g"><div class="gl">
  <div class="ge">Every page</div>
@@ -110,7 +110,7 @@ page("g4-inside", 1280, 720, 520, 48,
  """.box{position:absolute;right:76px;top:50%;transform:translateY(-50%);width:560px;z-index:2}
  .it{display:flex;align-items:baseline;gap:22px;padding:19px 0;border-bottom:1px solid #DFD8CA}
  .it:last-child{border-bottom:none}
- .it .n{font-size:46px;font-weight:700;color:#1E7A5A;line-height:1;width:76px;flex:none;text-align:right;
+ .it .n{font-size:46px;font-weight:700;color:#5B4FE8;line-height:1;width:76px;flex:none;text-align:right;
    letter-spacing:-.03em}
  .it .l{font-size:23px;color:#3A342B}""",
  f'''<div class="g"><div class="gl">
@@ -125,8 +125,8 @@ page("thumb", 600, 600, 600, 44,
  """.g{padding:0;display:block;background:#191510}
  .tw{position:absolute;inset:0;padding:54px;display:flex;flex-direction:column;justify-content:center;z-index:4}
  .tw .e{font-family:GM;font-size:14px;letter-spacing:.4em;text-transform:uppercase;color:#7C7468}
- .tw .m{font-size:78px;font-weight:700;letter-spacing:-.035em;color:#F5F1E8;line-height:.98;margin-top:14px}
- .tw .s{font-size:24px;color:#A79F91;margin-top:12px;line-height:1.35}
+ .tw .m{font-size:78px;font-weight:700;letter-spacing:-.035em;color:#F7F6FD;line-height:.98;margin-top:14px}
+ .tw .s{font-size:24px;color:#A8A8BC;margin-top:12px;line-height:1.35}
  .tw .r{height:5px;width:74px;background:#4dab9a;border-radius:3px;margin-top:22px}
  .tb{position:absolute;left:54px;right:54px;bottom:54px;display:flex;align-items:flex-end;
    gap:9px;height:118px;z-index:3}
@@ -136,5 +136,5 @@ page("thumb", 600, 600, 600, 44,
  '<div class="g"><div class="tg"></div><div class="tb">'
  + "".join(f'<i style="height:{b*22}px"></i>' for b in [1,2,2,3,1,3,1,1,2,4,3,5,5,3])
  + '</div><div class="tw"><div class="e">Notion Life OS</div>'
-   '<div class="m">NAZZIM</div><div class="s">Second Brain Pro</div>'
+   '<div class="m">Nazzim <span style="color:#9A9AAE">نظّم</span></div><div class="s">Second Brain Pro</div>'
    '<div class="r"></div></div></div>')
