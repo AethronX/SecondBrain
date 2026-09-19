@@ -957,3 +957,72 @@ paint what never landed there — half the laptop screen came back as bare page
 background. Devices are now rendered standalone at natural size and placed as
 `<img>`, which scales without a layout box. Same root cause as the 87px window
 offset: **Chromium paints the viewport, not the layout.**
+
+## The palette was invented, and the brand already existed
+
+Everything visual in this repo was built on warm paper and green: the sheets,
+the Gumroad layouts, twenty-four page covers, the accomplishment colour inside
+the product. All of it chosen on reasoning — warmth drives approach, green
+means progress — and none of it checked against the brand that already exists.
+
+The live site is purple-violet on light lavender, with a near-black first line
+and a gradient second line. A buyer who saw the site and then a Gumroad cover
+would have seen two companies. No amount of colour psychology outranks that.
+
+`brand/palette.md` now records the tokens, read off the site rather than
+reasoned toward:
+
+| Token | Hex |
+|---|---|
+| ink | `#0B0B14` |
+| paper | `#F7F6FD` |
+| gradient | `#4F52E8` → `#9B51E0` |
+| cover base | `#0E0E18` |
+
+The headline follows the site's own treatment — line one in ink, line two in
+the gradient — rather than the grey-to-black split I had designed. The wordmark
+is the site's lockup, **Nazzim نظّم**, not all-caps NAZZIM. DejaVu Sans carries
+the Arabic; nothing bundled here has Arabic coverage, so it will not match the
+site's Arabic face.
+
+### What moved inside the product, and what did not
+
+Purple took the surfaces the brand should own: the finished-this-week number,
+the momentum chart, the hero callout. Goals moved to blue so two brand-adjacent
+colours would not sit side by side.
+
+Status and priority chips kept their colours. Those are Notion's semantics and
+the user's own data — green for Completed, red for Overdue — and recolouring
+them to purple would have cost meaning to gain nothing. That is a judgement,
+stated here so it can be overruled.
+
+### Covers now track the branch instead of a commit
+
+Re-pointing twenty-four covers after every palette change is twenty-four API
+calls that produce nothing. `raw.githubusercontent.com/.../refs/heads/<branch>/...`
+resolves (verified, 200) and follows the branch, so a cover redesign now
+propagates on push with no Notion calls at all.
+
+The trade is immutability: a SHA-pinned cover can never break, a branch-pinned
+one moves if files move. **Before launch these should be re-pinned to a SHA**,
+because a template sold to strangers should not depend on a branch that is
+still being edited.
+
+### Credibility: what these images are, exactly
+
+They are not screenshots. They are pixel-level recreations of the product's
+real structure, rendered in HTML — which means every claim in them is something
+I chose to draw, and three of them had been invented: a Today's plan that did
+not exist, an overdue task that did not exist, and open "Next actions" that
+were really completed rows.
+
+Fixed by making the product true rather than the picture vaguer. Ten open tasks
+now continue the same seeded story, two of them genuinely overdue; a Today's
+plan row exists for the date the mockup shows, with the Focus line the mockup
+quotes and a One Big Thing relation to the task it names.
+
+**The remaining gap is honest and worth stating: a recreation is not a
+screenshot.** Notion's own font stack, spacing and chart rendering differ in
+small ways from anything drawn by hand. The only way to close it completely is
+screenshots taken from the real workspace — which needs a signed-in browser,
+and this environment has neither.
