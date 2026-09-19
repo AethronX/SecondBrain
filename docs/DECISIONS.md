@@ -837,3 +837,71 @@ The renders were rebuilt from the new page, so the claim and the screenshot are
 the same artifact. That constraint is the point: if the headline ever stops
 being true, the image stops matching the product, and the mismatch is visible
 rather than arguable.
+
+## One designed page and thirteen bare ones
+
+The home page was good. Every other page opened on nothing — no cover, just
+a title. That is the exact seam where a template stops feeling like a product:
+the buyer clicks the second page in the sidebar and the design falls away.
+Top-selling templates are consistent everywhere, and consistency across pages
+is worth more than sophistication on one.
+
+Fifteen covers now, one per page, all the same composition: `NAZZIM · <PAGE>`
+in mono, an accent rule, the **zone** as the masthead word, and a bar motif.
+The bars are the product's own fourteen-day completion shape — the same
+numbers the home page charts — so the ornament is the data.
+
+| Zone | Accent | Pages |
+|---|---|---|
+| ROOT | green | NAZZIM Pro |
+| DAILY | purple | Today, Inbox, Command Center |
+| BUILD | blue | Tasks, Projects, Goals, Areas |
+| THINK | green | Knowledge |
+| RHYTHM | orange | Reviews, Analytics, Archive |
+| SYSTEM | grey | Start Here, Settings & Help, System — Databases |
+
+### Two mistakes the mockup caught that an API round-trip never would
+
+**The cover said the page name, and so did the H1 directly beneath it.** Two
+identical titles a hundred pixels apart reads as a bug. The cover now carries
+the zone; the page name is small, in the eyebrow. Nothing is said twice, and
+the zone — the thing actually worth knowing at a glance — is what the band
+announces.
+
+**The page icon landed on the cover's text.** Notion always puts the icon at
+the left edge of the content column, and its exact position moves with window
+width. Tuning the padding would have fixed one width. Moving the text to the
+right and the bars to the left fixes every width.
+
+Both were invisible in the API response and obvious the moment the real cover
+replaced the placeholder in the laptop render. The audit's blind spot, again:
+structural correctness and visual correctness are different properties.
+
+### The delivery path, and its one dependency
+
+Notion page covers require an **external HTTPS URL** — `file-upload://` is
+rejected with "Invalid page cover URL", and this container cannot reach
+`api.notion.com` to do a direct multipart upload anyway. The repository is
+public, so the covers are served from `raw.githubusercontent.com` pinned to a
+commit SHA, which is immutable and survives a branch rename.
+
+**That is a real dependency worth stating: if this repository is ever made
+private, all fifteen covers break.** Making them Notion-hosted means dragging
+each PNG into the page by hand once, in the Notion UI.
+
+### A rendering defect that had been silent all along
+
+Headless Chromium's `--window-size` sets the WINDOW; the viewport comes out
+87px shorter, and `--screenshot` still writes a window-sized image whose
+bottom strip was never painted. It went unnoticed across every 2000×2000 sheet
+in this repo only because the dead strip happened to match the paper colour —
+on a dark cover it was a visible band. `brand/pngcrop.py` crops in pure Python
+(no Pillow here), and both render paths now draw 87px taller and crop back,
+rather than hiding the strip behind a matching background.
+
+### What is still not best-in-class
+
+Page **icons** are still Notion's built-ins, zone-coloured. They are crisp and
+consistent, and at the ~20px the sidebar renders them, a custom set is as
+likely to look worse as better. That is the remaining visible gap against the
+top sellers, and it is a judgement call rather than an oversight.
