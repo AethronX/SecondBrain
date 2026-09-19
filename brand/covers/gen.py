@@ -10,22 +10,22 @@ ZONE = {
 ZONE["SYSTEM"] = "#8f8a82"
 SPECTRUM = ["#9a6dd7","#5e9ed6","#4dab9a","#ffa344","#8f8a82"]
 
-PAGES = [
-    ("nazzim-pro",      "NAZZIM Pro",         "ROOT",   "SECOND BRAIN PRO"),
-    ("today",           "Today",              "DAILY",  "DAILY"),
-    ("inbox",           "Inbox",              "DAILY",  "DAILY"),
-    ("command-center",  "Command Center",     "DAILY",  "DAILY"),
-    ("tasks",           "Tasks",              "BUILD",  "BUILD"),
-    ("projects",        "Projects",           "BUILD",  "BUILD"),
-    ("goals",           "Goals",              "BUILD",  "BUILD"),
-    ("areas",           "Areas",              "BUILD",  "BUILD"),
-    ("knowledge",       "Knowledge",          "THINK",  "THINK"),
-    ("reviews",         "Reviews",            "RHYTHM", "RHYTHM"),
-    ("analytics",       "Analytics",          "RHYTHM", "RHYTHM"),
-    ("archive",         "Archive",            "RHYTHM", "RHYTHM"),
-    ("start-here",      "Start Here",         "SYSTEM", "SYSTEM"),
-    ("settings",        "Settings & Help",    "SYSTEM", "SYSTEM"),
-    ("databases",       "System — Databases", "SYSTEM", "SYSTEM"),
+PAGES = [                       # slug, page name (small), zone, masthead word (large)
+    ("nazzim-pro",      "SECOND BRAIN PRO",   "ROOT",   "NAZZIM"),
+    ("today",           "TODAY",              "DAILY",  "DAILY"),
+    ("inbox",           "INBOX",              "DAILY",  "DAILY"),
+    ("command-center",  "COMMAND CENTER",     "DAILY",  "DAILY"),
+    ("tasks",           "TASKS",              "BUILD",  "BUILD"),
+    ("projects",        "PROJECTS",           "BUILD",  "BUILD"),
+    ("goals",           "GOALS",              "BUILD",  "BUILD"),
+    ("areas",           "AREAS",              "BUILD",  "BUILD"),
+    ("knowledge",       "KNOWLEDGE",          "THINK",  "THINK"),
+    ("reviews",         "REVIEWS",            "RHYTHM", "RHYTHM"),
+    ("analytics",       "ANALYTICS",          "RHYTHM", "RHYTHM"),
+    ("archive",         "ARCHIVE",            "RHYTHM", "RHYTHM"),
+    ("start-here",      "START HERE",         "SYSTEM", "SYSTEM"),
+    ("settings",        "SETTINGS & HELP",    "SYSTEM", "SYSTEM"),
+    ("databases",       "SYSTEM — DATABASES", "SYSTEM", "SYSTEM"),
 ]
 
 TPL = """<!doctype html><meta charset="utf-8">
@@ -35,18 +35,19 @@ TPL = """<!doctype html><meta charset="utf-8">
 *{{margin:0;padding:0;box-sizing:border-box}}
 html,body{{width:1600px;height:400px;overflow:hidden}}
 body{{background:#16130E;-webkit-font-smoothing:antialiased}}
-.cv{{width:1600px;height:400px;position:relative;overflow:hidden;display:flex;align-items:center;padding:0 92px;
+.cv{{width:1600px;height:400px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:flex-end;padding:0 92px;
   background:#191510}}
 .grain{{position:absolute;inset:0;z-index:5;opacity:.05;pointer-events:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}}
-.glow{{position:absolute;right:-180px;top:-280px;width:940px;height:940px;border-radius:50%;
+.glow{{position:absolute;left:-180px;top:-280px;width:940px;height:940px;border-radius:50%;
   background:radial-gradient(circle,{accent}2E 0%,{accent}12 40%,transparent 70%)}}
-.bars{{position:absolute;right:92px;top:0;bottom:0;display:flex;align-items:flex-end;gap:13px;padding-bottom:100px;z-index:1}}
+.bars{{position:absolute;left:92px;top:0;bottom:0;display:flex;align-items:flex-end;gap:13px;padding-bottom:100px;z-index:1}}
 .bars i{{width:23px;border-radius:3px 3px 0 0}}
-.txt{{position:relative;z-index:3}}
+.txt{{position:relative;z-index:3;text-align:right}}
 .eb{{font-family:GM;font-size:21px;letter-spacing:.44em;text-transform:uppercase;color:#7C7468}}
-.rule{{height:5px;width:62px;background:{accent};border-radius:3px;margin:17px 0 21px}}
-.nm{{font-family:IS;font-size:74px;font-weight:700;letter-spacing:-.032em;color:#F5F1E8;line-height:1;white-space:nowrap}}
+.rule{{height:5px;width:62px;background:{accent};border-radius:3px;margin:17px 0 21px auto}}
+.nm{{font-family:IS;font-size:70px;font-weight:700;letter-spacing:.012em;text-transform:uppercase;
+  color:#F5F1E8;line-height:1;white-space:nowrap}}
 </style>
 <div class="cv">
   <div class="glow"></div>
@@ -59,7 +60,7 @@ body{{background:#16130E;-webkit-font-smoothing:antialiased}}
   </div>
 </div>"""
 
-def build(slug, name, zone, eyebrow):
+def build(slug, eyebrow, zone, name):
     accent = ZONE[zone]
     bars = ""
     for i, b in enumerate(BARS):
@@ -78,6 +79,6 @@ def build(slug, name, zone, eyebrow):
 if __name__ == "__main__":
     import sys
     only = sys.argv[1] if len(sys.argv) > 1 else None
-    for slug, name, zone, eyebrow in PAGES:
+    for slug, eyebrow, zone, name in PAGES:
         if only and slug != only: continue
-        print(build(slug, name, zone, eyebrow))
+        print(build(slug, eyebrow, zone, name))
