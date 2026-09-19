@@ -1,0 +1,220 @@
+<link rel="stylesheet" href="_d.css">
+<style>
+.sheet{padding:110px 90px 120px}
+.rig{position:relative;width:1820px;height:1150px}
+.lapwrap{position:absolute;left:0;top:0;transform:scale(.82);transform-origin:top left}
+.phwrap{position:absolute;right:30px;bottom:0;transform:scale(.62);transform-origin:bottom right;z-index:3}
+.phwrap .ph{box-shadow:0 2px 0 rgba(255,255,255,.14) inset,-90px 70px 150px -40px rgba(0,0,0,.42)}
+.lap .scr .ui{font-size:22px;padding:0;height:100%;display:flex}
+.lap /* window chrome */
+.side{width:330px;flex:none;background:#202020;border-right:1px solid #2b2b2b;padding:20px 12px;font-size:20px;color:#9b9b9b}
+.lap .ws{display:flex;align-items:center;gap:12px;padding:8px 10px 18px;color:#d4d4d4;font-weight:700;font-size:21px}
+.lap .av{width:30px;height:30px;border-radius:6px;background:#d4d4d4;color:#191919;font-size:17px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.lap .si{display:flex;align-items:center;gap:13px;padding:7px 10px;border-radius:6px;line-height:1.3}
+.lap .si .g{width:22px;text-align:center;font-size:19px;color:#7d7d7d;flex:none}
+.lap .si.on{background:#2c2c2c;color:#e8e8e8;font-weight:700}
+.lap .sgap{height:16px}
+.lap .slabel{font-size:17px;letter-spacing:.08em;color:#6a6a6a;padding:10px 10px 6px}
+.lap .main{flex:1;min-width:0;display:flex;flex-direction:column;overflow:hidden}
+.lap .top{height:62px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 26px;font-size:20px;color:#9b9b9b}
+.lap .top .crumb{display:flex;align-items:center;gap:11px;color:#d4d4d4}
+.lap .top .acts{display:flex;align-items:center;gap:22px}
+.lap .cover{height:126px;flex:none;background:linear-gradient(112deg,#1d2b33 0%,#25343b 38%,#3a3129 72%,#2a2320 100%)}
+.lap .doc{flex:1;min-height:0;padding:0 112px;position:relative}
+.lap .picon{width:70px;height:70px;border-radius:50%;border:9px solid #9b9b9b;margin:-42px 0 12px;position:relative;background:#191919}
+.lap .picon:after{content:'';position:absolute;inset:14px;border-radius:50%;background:#9b9b9b}
+.lap .h1{font-size:46px;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:18px}
+.lap .quote{font-size:27px;border-left:4px solid #d4d4d4;padding-left:20px;margin-bottom:18px}
+.lap .callout{padding:16px 20px;margin-bottom:20px;gap:15px}
+.lap .callout .ci{font-size:22px}
+.lap .callout p{font-size:21px;line-height:1.5}
+.lap .tiles{gap:18px;margin-bottom:18px}
+.lap .tile{padding:12px 18px 14px}
+.lap .src{font-size:18px;margin-bottom:10px}
+.lap .big{font-size:52px;margin:0 0 4px}
+.lap .cap{font-size:17px}
+.lap .vh{display:flex;align-items:center;gap:22px;margin-bottom:6px}
+.lap .vh .nm{display:flex;align-items:center;gap:9px;font-size:19px;color:#9b9b9b}
+.lap .tabs{display:flex;gap:20px;font-size:19px;color:#6f6f6f;border-bottom:1px solid #232323;padding-bottom:9px;margin-bottom:6px}
+.lap .tabs .t.on{color:#e8e8e8;font-weight:700;box-shadow:0 9px 0 -7px #e8e8e8}
+.lap .grp{font-size:18px;color:#8a8a8a;font-weight:700;letter-spacing:.04em;padding:14px 0 2px;display:flex;gap:10px;align-items:center}
+.lap .grp .n{color:#5f5f5f;font-weight:400}
+.lap .row{padding:9px 0;gap:13px}
+.lap .tk{font-size:22px}
+.lap .chip{font-size:17px;padding:3px 10px}
+.lap .dt{font-size:18px}
+.lap .newb{font-size:19px;padding-top:11px}
+.ph .pscr .ui{font-size:25px;padding:0;flex:1;min-height:0;display:flex;flex-direction:column;background:#191919}
+.ph .nav{flex:none;display:flex;align-items:center;justify-content:space-between;padding:20px 30px 14px;
+  font-size:25px;color:#9b9b9b}
+.ph .nav .ttl{font-weight:700;color:#e8e8e8;font-size:25px}
+.ph .body{flex:1;min-height:0;padding:0 30px;overflow:hidden}
+.ph .picon{font-size:48px;line-height:1;color:#9a6dd7;margin:6px 0 10px}
+.ph .h1{font-size:50px;font-weight:700;color:#fff;letter-spacing:-.025em;margin-bottom:18px}
+.ph .callout{background:#2b2233;padding:16px 18px;margin-bottom:20px;gap:14px;border-radius:7px}
+.ph .callout .ci{color:#b58ae0;font-size:24px}
+.ph .callout p{font-size:21px;line-height:1.45;color:#a78bc4}
+.ph .callout b{color:#e6d6f7}
+.ph .vh{display:flex;align-items:center;gap:9px;font-size:20px;color:#9b9b9b;margin-bottom:9px}
+.ph .plan{border:1px solid #2f2f2f;border-radius:8px;padding:16px 18px;margin-bottom:22px}
+.ph .plan .d{font-size:24px;font-weight:700;color:#fff;margin-bottom:7px}
+.ph .plan .f{font-size:21px;color:#9b9b9b}
+.ph .plan .f b{color:#d4d4d4;font-weight:400}
+.ph .tabs{display:flex;gap:22px;font-size:21px;color:#6f6f6f;border-bottom:1px solid #232323;
+  padding-bottom:10px;margin-bottom:4px}
+.ph .tabs .t.on{color:#e8e8e8;font-weight:700;box-shadow:0 10px 0 -8px #e8e8e8}
+.ph .grp{font-size:20px;color:#8a8a8a;font-weight:700;letter-spacing:.04em;padding:19px 0 5px;display:flex;gap:9px}
+.ph .grp .n{color:#5f5f5f;font-weight:400}
+.ph .r{padding:14px 0;border-bottom:1px solid #232323}
+.ph .r .tk{font-size:25px;color:#e8e8e8;line-height:1.3;margin-bottom:9px}
+.ph .r .m{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.ph .chip{font-size:19px;padding:3px 10px}
+.ph .dt{font-size:19px}
+.ph .tab{flex:none;height:104px;border-top:1px solid #262626;background:#1d1d1d;display:flex;
+  align-items:flex-start;padding:16px 26px 0}
+.ph .tab .i{flex:1;text-align:center;font-size:18px;color:#6f6f6f;line-height:1.5}
+.ph .tab .i .g{display:block;font-size:27px;color:#6f6f6f}
+.ph .tab .i.on, .ph .tab .i.on .g{color:#e8e8e8}
+</style>
+<div class="sheet">
+  <div class="eyebrow">Notion Life OS · Desktop &amp; Mobile</div>
+  <div class="stage">
+    <div class="rig">
+      <div class="lapwrap"><div class="lap">
+      <div class="shadow"></div>
+      <div class="lid">
+        <div class="bez">
+          <div class="notch"></div>
+          <div class="scr"><div class="ui">
+
+            <div class="side">
+              <div class="ws"><div class="av">N</div> NAZZIM Pro</div>
+              <div class="si"><span class="g">⌕</span> Search</div>
+              <div class="si"><span class="g">◷</span> Updates</div>
+              <div class="si"><span class="g">⚙</span> Settings</div>
+              <div class="sgap"></div>
+              <div class="slabel">WORKSPACE</div>
+              <div class="si on"><span class="g">◎</span> NAZZIM Pro</div>
+              <div class="si"><span class="g">☀</span> Today</div>
+              <div class="si"><span class="g">⤓</span> Inbox</div>
+              <div class="si"><span class="g">◧</span> Command Center</div>
+              <div class="si"><span class="g">✓</span> Tasks</div>
+              <div class="si"><span class="g">▤</span> Projects</div>
+              <div class="si"><span class="g">◎</span> Goals</div>
+              <div class="si"><span class="g">◈</span> Areas</div>
+              <div class="si"><span class="g">✦</span> Knowledge</div>
+              <div class="si"><span class="g">↻</span> Reviews</div>
+              <div class="si"><span class="g">▦</span> Analytics</div>
+              <div class="si"><span class="g">⌸</span> Archive</div>
+              <div class="sgap"></div>
+              <div class="si"><span class="g">＋</span> New page</div>
+            </div>
+
+            <div class="main">
+              <div class="top">
+                <div class="crumb"><span>◎</span> NAZZIM Pro</div>
+                <div class="acts"><span>Edited 2m ago</span><span>Share</span><span>💬</span><span>⋯</span></div>
+              </div>
+              <div class="cover"></div>
+              <div class="doc">
+                <div class="picon"></div>
+                <div class="h1">NAZZIM Pro</div>
+                <div class="quote"><b>Turn information into execution.</b></div>
+
+                <div class="callout">
+                  <div class="ci">◎</div>
+                  <div>
+                    <p><b>Nothing on this page is filed by hand.</b> Every number and every row below is computed from work you already entered — the only upkeep this system asks for is thirty minutes on a Sunday.</p>
+                    <p class="mut">New here? Open <span class="lnk">Start Here</span>. Week one is three pages: Areas once, then Today and Inbox daily.</p>
+                  </div>
+                </div>
+
+                <div class="tiles">
+                  <div class="tile"><div class="src"><span class="arr">↗</span> Tasks</div><div class="big">7</div><div class="cap">Open right now</div></div>
+                  <div class="tile"><div class="src"><span class="arr">↗</span> Inbox</div><div class="big">3</div><div class="cap">Waiting in your inbox</div></div>
+                  <div class="tile"><div class="src"><span class="arr">↗</span> Goals</div><div class="big">4</div><div class="cap">On track this quarter</div></div>
+                </div>
+
+                <div class="vh"><div class="nm"><span class="arr">↗</span> Tasks</div></div>
+                <div class="tabs"><span class="t on">Today’s work</span><span class="t">Board</span><span class="t">Calendar</span></div>
+
+                <div class="grp">Overdue <span class="n">1</span></div>
+                <div class="row"><div class="tk">Renew the nazzim.com domain</div><span class="chip c-red">P1 Critical</span><span class="chip c-blu">@Computer</span><span class="dt">2 days late</span></div>
+
+                <div class="grp">Must Do <span class="n">2</span></div>
+                <div class="row"><div class="tk">Write the launch email to the 400-person list</div><span class="chip c-red">P1 Critical</span><span class="chip c-red">@Deep Work</span><span class="dt">Today</span></div>
+                <div class="row"><div class="tk">Sign the studio lease and scan it</div><span class="chip c-red">P1 Critical</span><span class="chip c-org">@Errand</span><span class="dt">Today</span></div>
+
+                <div class="grp">Should Do <span class="n">3</span></div>
+                <div class="row"><div class="tk">Outline chapter three</div><span class="chip c-org">P2 Important</span><span class="chip c-red">@Deep Work</span><span class="dt">Today</span></div>
+                <div class="row"><div class="tk">Reply to Salim about the October schedule</div><span class="chip c-org">P2 Important</span><span class="chip c-pur">@Phone</span><span class="dt">Today</span></div>
+                <div class="row"><div class="tk">Book the flights before prices move</div><span class="chip c-org">P2 Important</span><span class="chip c-blu">@Computer</span><span class="dt">Tomorrow</span></div>
+                <div class="newb">＋ New</div>
+              </div>
+            </div>
+
+          </div><div class="chin">NAZZIM</div></div>
+        </div>
+      </div>
+      <div class="base"><div class="dip"></div></div>
+    </div></div>
+      <div class="phwrap"><div class="ph">
+      <div class="shadow"></div>
+      <div class="pbez">
+        <div class="pscr">
+          <div class="dyn"></div>
+          <div class="sbar"><span>9:41</span><span class="ico"><span class="sig"><i></i><i></i><i></i><i></i></span><svg class="wifi" viewBox="0 0 24 18" width="24" height="18"><path fill="#e8e8e8" d="M12 17.4 8.7 13.9a4.9 4.9 0 0 1 6.6 0L12 17.4Z"/><path fill="#e8e8e8" d="M12 6.3c2.6 0 5 1 6.8 2.6l-2.1 2.2A7 7 0 0 0 12 9.2c-1.8 0-3.4.7-4.7 1.9L5.2 8.9A9.7 9.7 0 0 1 12 6.3Z"/><path fill="#e8e8e8" d="M12 .9c4 0 7.7 1.5 10.4 4.1l-2.1 2.2A12.2 12.2 0 0 0 12 3.8c-3.2 0-6.2 1.3-8.3 3.4L1.6 5A14.6 14.6 0 0 1 12 .9Z"/></svg><span class="bat"><span></span></span></span></div>
+          <div class="ui">
+            <div class="nav"><span>‹</span><span class="ttl">Today</span><span>⋯</span></div>
+            <div class="body">
+              <div class="picon">☀</div>
+              <div class="h1">Today</div>
+              <div class="callout">
+                <div class="ci">☀</div>
+                <div><p>NAZZIM · <b>Today</b> · Inbox · Command · Tasks · Projects · Goals · Areas · Knowledge · Reviews</p></div>
+              </div>
+
+              <div class="vh"><span class="arr">↗</span> Today’s plan</div>
+              <div class="plan">
+                <div class="d">Friday 19 September</div>
+                <div class="f">Focus — <b>Launch email out before noon.</b></div>
+              </div>
+
+              <div class="vh"><span class="arr">↗</span> Tasks</div>
+              <div class="tabs"><span class="t on">Today’s work</span><span class="t">Board</span><span class="t">Next</span></div>
+
+              <div class="grp">Overdue <span class="n">1</span></div>
+              <div class="r"><div class="tk">Renew the nazzim.com domain</div>
+                <div class="m"><span class="chip c-red">P1 Critical</span><span class="chip c-blu">@Computer</span><span class="dt">2 days late</span></div></div>
+
+              <div class="grp">Must Do <span class="n">2</span></div>
+              <div class="r"><div class="tk">Write the launch email to the 400-person list</div>
+                <div class="m"><span class="chip c-red">P1 Critical</span><span class="chip c-red">@Deep Work</span><span class="dt">Today</span></div></div>
+              <div class="r"><div class="tk">Sign the studio lease and scan it</div>
+                <div class="m"><span class="chip c-red">P1 Critical</span><span class="chip c-org">@Errand</span><span class="dt">Today</span></div></div>
+
+              <div class="grp">Should Do <span class="n">3</span></div>
+              <div class="r"><div class="tk">Outline chapter three</div>
+                <div class="m"><span class="chip c-org">P2 Important</span><span class="chip c-red">@Deep Work</span><span class="dt">Today</span></div></div>
+            </div>
+            <div class="tab">
+              <div class="i"><span class="g">⌕</span>Search</div>
+              <div class="i on"><span class="g">◎</span>Home</div>
+              <div class="i"><span class="g">⤓</span>Inbox</div>
+              <div class="i"><span class="g">＋</span>New</div>
+            </div>
+          </div>
+          <div class="hbar"></div>
+        </div>
+      </div>
+    </div></div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>
+      <div class="wordmark">NAZZIM</div>
+      <div class="tag">Turn information into execution.</div>
+    </div>
+    <div class="meta">Second Brain Pro<br>Same system, both screens<br>Notion template</div>
+  </div>
+</div>
