@@ -905,3 +905,55 @@ Page **icons** are still Notion's built-ins, zone-coloured. They are crisp and
 consistent, and at the ~20px the sidebar renders them, a custom set is as
 likely to look worse as better. That is the remaining visible gap against the
 top sellers, and it is a judgement call rather than an oversight.
+
+## The funnel's front door was still built the old way
+
+Pro was inverted to open on accomplishment. The Free edition — the thing that
+will actually be listed on Gumroad Discover, seen by far more people, and
+judged first — still opened on debt: three tiles counting open tasks, unsorted
+inbox, and projects. That is backwards for a paid product and worse for a free
+one, because a free product only earns the upgrade if it is good enough to keep
+using.
+
+Free now mirrors Pro:
+
+- A `Done This Week` formula, which Free did not have. Written with both bounds
+  (`>= 0 and <= 7`) rather than copied, so a future-dated completion cannot
+  inflate the number.
+- **27 sample completed tasks** across Sep 6–19, giving a contiguous bar for
+  every day. The persona is deliberately different from Pro's — an ordinary
+  week of work, admin, health and home, not a course-shipping operator. Free
+  and Pro are sold to different people and the sample data should say so.
+- Two views: a green number, and the momentum column chart.
+- The three debt tiles deleted; the page opens on the result and closes on the
+  obligation.
+- The upgrade callout moved from grey to orange. It is an invitation, and grey
+  reads as fine print — the same argument as Pro's Sunday review callout.
+
+**One number, not three.** Pro shows finished / goal progress / weeks reviewed.
+Free has no Goals and no Reviews, so padding the row to three would have meant
+inventing metrics. A single large green number is stronger than three weak
+ones, and the absence is itself the upgrade argument.
+
+Nine covers, using Free's **own** fourteen-day shape rather than Pro's. The
+motif is only meaningful if it is that product's data; a copied shape would
+make it decoration.
+
+### The Gumroad listing, and what could not be automated
+
+There is no Gumroad connector in the directory and `gumroad.com` is unreachable
+from this environment, so the listing itself cannot be created from here. What
+exists instead: `store/gumroad-listing.md` with the copy for both listings, and
+`brand/gumroad/` with the five assets at the sizes Gumroad actually uses —
+four 1280×720 covers and a 600×600 thumbnail, as separate layouts rather than
+crops, because Gumroad shows covers at 16:9 and the library tile as a square.
+
+Notion cannot publish a page to the web through this API either, so the two
+"Duplicate as template" links have to come from the account owner.
+
+**A rendering trap worth recording:** scaling a 1820px-wide device with a CSS
+transform leaves its un-scaled box outside the viewport, and Chromium does not
+paint what never landed there — half the laptop screen came back as bare page
+background. Devices are now rendered standalone at natural size and placed as
+`<img>`, which scales without a layout box. Same root cause as the 87px window
+offset: **Chromium paints the viewport, not the layout.**
